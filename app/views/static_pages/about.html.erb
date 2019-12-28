@@ -1,2 +1,24 @@
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+<% provide(:title, "ROOMERって？") %>
+<!-- first-section -->
+<section id="first">
+  <h2>自分の部屋を記録しよう！</h2>
+  <p>
+    あなたの自慢の部屋を撮影しよう！<br>
+    「コメント」や「いいね」機能を使って、部屋やインテリアについて語り合いましょう。
+  </p>
+  <div class="left">
+    <%= image_tag('first-section.png')%>
+  </div><br />
+</section>
+
+<!-- second-section -->
+<section id="second">
+  <h2>気になったインテリアを近くのインテリアショップに買いに行こう！</h2>
+  <p>
+    他の人が投稿した写真に写っている商品（アイテム）の情報を知ることができます。<br>
+    また、近くのインテリアショップを検索できます。<br>
+  </p>
+  <div class="left">
+    <%= image_tag('second-section.png')%>
+  </div><br />
+</section>
