@@ -1,43 +1,67 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<% provide :title, "アカウント設定" %>
+      
+<div class="custom-form">
+  <h1 class="form-title mb-4 text-center">アカウント設定</h1><br />
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="container" style="max-width: 730px; padding: 1rem 30px;">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="row">
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+         <!-- プロフィール画像編集 -->
+        <div class="edit-profile-avatar d-flex">
+          <div>
+            <img id="avatar_img_prev" src="#" class='hidden rounded-circle z-depth-0 mb-4' style="width: 150px; height: 150px; object-fit: cover" alt="avatar image"/>
+            <% if resource.avatar? %>
+              <%= image_tag resource.avatar.url, size: "150x150", class: 'avatar_present_img rounded-circle z-depth-0 mb-4', alt: "avatar image" %>
+            <% else %>
+              <%= image_tag 'no_user.png', class: 'avatar_present_img d-block rounded-circle z-depth-0 mb-4', size: "150x150", alt: "avatar image" %>
+              <%= f.hidden_field :avatar_cache %>
+            <% end %>
+            <div class="d-flex justify-content-center">
+              <label for="post_img" class="btn image-submit-btn" style="cursor:pointer;">
+                <%= f.file_field :avatar, id: 'post_img', class: "d-none" %>
+              </label>
+            </div>
+          </div>
+        </div><br />
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+        <div class="field form-group">
+          <%= f.label :user_name %>
+          <%= f.text_field :user_name, class: "form-control" %>
+          <p class="note">小文字の半角英数字と'_'(アンダーバー)のみ</p>
+        </div>
+
+        <div class="edit-profile-form">
+          <div class="field form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+            <p class="note"></p>
+          </div>
+
+          <div class="field form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+            <p class="note"><%= @minimum_password_length %>文字以上（変更しない場合は空欄にして下さい）</p>
+          </div>
+
+          <div class="field form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+          </div>
+
+          <div class="field form-group mb-4">
+            <%= f.label :current_password %>
+            <%= f.password_field :current_password, class: "form-control", autocomplete: "current-password" %>
+            <p class="note">パスワードを変更する際に入力が必要です</p><br />
+          </div>
+
+          <div class="actions text-left mb-4">
+            <%= f.submit "変更を保存する", { class: "btn submit-btn" } %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
