@@ -60,6 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # ユーザー情報を編集する場合、パスワード変更時のみパスワードを要求する（それ以外は要求しない）
   def update_resource(resource, params)
     return super if params['password']&.present?
+
     resource.update_without_password(params.except('current_password'))
   end
 
