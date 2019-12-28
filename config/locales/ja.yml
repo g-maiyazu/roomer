@@ -1,0 +1,58 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      profile: プロフィール
+    attributes:
+      user:
+        user_name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        remember_me: ログインを記憶
+        current_password: 現在のパスワード
+      profile:
+        name: 名前
+        age: 年齢
+        gender: 性別
+        job: 仕事
+        postal_code: 郵便番号
+        address: 住所
+        living_style: 居住形態
+        floor_plan: 間取り
+        floor_width: 広さ
+        web_site: ウェブサイト
+        introduction: 自己紹介
+  enums:
+    profile:
+      gender:
+        man: 男性
+        woman: 女性
+        not_answer_gender: 答えたくない
+      job:
+        housewife: 主婦/主夫
+        student: 学生
+        interia: インテリア系
+        architecher: 建築系
+        beauty: 美容系
+        fashon: ファッション系
+        it: IT系
+        other_job: その他
+        not_answer_job: 答えたくない
+      living_style: 
+        family: 家族
+        alone: 一人暮らし
+        share: シェア
+        coupple: カップル
+        other_style: その他
+        not_answer_style: 答えたくない
+      floor_plan:
+        one_R: 1R
+        one_K: 1K
+        one_DK: 1DK
+        one_LDK: 1DK
+        two_K: 2K
+        two_DK: 2DK
+        two_LDK: 2LDK
+        other_plan: その他
+        not_answer_plan: 答えたくない
