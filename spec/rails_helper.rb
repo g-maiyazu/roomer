@@ -65,7 +65,7 @@ RSpec.configure do |config|
   # リクエストスペックとシステムスペックでDeviseのテストヘルパーを使用する
   config.include Devise::Test::IntegrationHelpers, type: :system
 
-  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 
   RSpec.configure do |config|
     config.before(:each, type: :system) do
