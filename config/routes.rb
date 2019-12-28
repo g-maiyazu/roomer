@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :profiles, only: [:show, :edit, :update]
+
   devise_scope :user do
     get "signup", to: "users/registrations#new"
     post "signup", to: "users/registrations#create"
