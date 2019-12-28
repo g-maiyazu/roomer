@@ -1,29 +1,37 @@
-<h2>Sign up</h2>
+<% provide(:title, 'ユーザー登録') %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="custom-form">
+  <h1 class="form-title mb-4 text-center">ユーザー登録</h1><br />
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="field form-group">
+        <%= f.label :user_name %>
+        <%= f.text_field :user_name, class: "form-control", autocomplete: "user_name" %><br />
+      </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+      <div class="field form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control", autocomplete: "email" %><br />
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="field form-group">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %>文字以上)</em>
+        <% end %>
+        <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %><br />
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+      <div class="field form-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %><br />
+      </div>
 
-<%= render "devise/shared/links" %>
+      <div class="actions text-center mb-3">
+        <%= f.submit "アカウントを作成する", { class: "btn submit-btn" } %>
+      </div><br />
+    <% end %>
+  </div>
+</div>

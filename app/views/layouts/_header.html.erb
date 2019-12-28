@@ -17,11 +17,7 @@
       <% if user_signed_in? %>
         <div class="dropdown">
           <button class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-            <% if !current_user.blank? %>
-              <%= image_tag current_user.avatar.url, size: "40x40", class: 'avatar_present_img rounded-circle z-depth-0 mb-4', alt: "avatar image" %>
-            <% else %>
               <%= image_tag 'no_user.png', size: "40x40", class: 'avatar_present_img d-block rounded-circle z-depth-0 mb-4', alt: "avatar image" %>
-            <% end %>
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
             <li role="presentation">
