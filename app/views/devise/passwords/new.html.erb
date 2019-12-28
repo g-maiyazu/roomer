@@ -1,0 +1,19 @@
+<% provide :title, "パスワードを再設定" %>
+<div class="custom-form">
+  <h1 class="form-title mb-4 text-center">パスワードを再設定する</h1>
+  <p class="explanation mx-auto mb-5 text-justify">
+    パスワードを忘れた場合は、以下のフォームに登録したメールアドレスを入力してください。パスワードの再設定について、メールでご連絡いたします。
+  </p>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="container">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="field form-group mb-5">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+      <div class="actions text-center mb-4">
+        <%= f.submit "再設定用のメールを送信する", { class: "btn submit-btn" } %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<% provide(:title, 'すべてのユーザー') %>
+
+<div class="page-header d-flex align-items-center mx-auto mb-4">すべてのユーザー</div>
+
+<div class="all-users user-cards row">
+  <%= render 'users/user_cards', group: @users %>
+</div>
+
+<div class="all-users-footer">
+  <%= paginate @users %>
+  <div class="loadmore-btn-wrapper p-0 d-flex">
+    <button class="loadmore-btn btn active mx-auto">さらに表示</button>
+  </div>
+</div>

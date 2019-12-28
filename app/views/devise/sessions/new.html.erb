@@ -1,0 +1,38 @@
+<% provide :title, "ログイン" %>
+
+<div class="custom-form">
+  <h1 class="form-title mb-4 text-center">ログイン</h1>
+  <div class="error_explanation">
+    <% if alert %>
+      <p class="alert alert-notice"><%= alert %></p>
+    <% end %>
+  </div>
+
+  <div class="container">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field"><br />
+       <%= f.label :email %><br />
+       <%= f.email_field :email, class: "form-control", autocomplete: "email" %>
+      </div><br />
+
+      <div class="field form-group">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field form-group mb-5">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, "ログイン状態を保持" %>
+        </div>
+      <% end %>
+
+      <div class="actions text-center mb-4">
+        <%= f.submit "ログインする", { class: "btn submit-btn" } %>
+      </div>
+    <% end %>
+    <div class="text-center">
+      <%= link_to "パスワードを忘れた場合はこちら", new_password_path(resource_name), class: "custom-link forgot-password" %>
+    </div>
+  </div>
+</div>
