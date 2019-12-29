@@ -1,5 +1,9 @@
 <% provide(:title, 'すべてのユーザー') %>
 
+<% if user_signed_in? && current_user.admin? %>
+  <%= render 'layouts/toast' %>
+<% end %>
+
 <div class="page-header d-flex align-items-center mx-auto mb-4">すべてのユーザー</div>
 
 <div class="all-users user-cards row">

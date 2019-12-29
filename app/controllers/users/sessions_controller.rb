@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  after_action :delete_flash_message, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -18,7 +19,15 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def delete_flash_message
+    flash.delete(:notice) if flash[:notice].present?
+  end
+
+  def after_sign_in_path_for(resource)
+    profile_path(resource)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
