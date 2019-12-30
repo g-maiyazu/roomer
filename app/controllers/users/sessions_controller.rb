@@ -3,6 +3,7 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   after_action :delete_flash_message, only: [:create]
+  protect_from_forgery
 
   # GET /resource/sign_in
   # def new
