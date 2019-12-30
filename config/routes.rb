@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
   }
 
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index] do
     collection do
       get :search
     end

@@ -5,10 +5,6 @@ class UsersController < ApplicationController
     @users = User.all.page(params[:page]).per(Constants::UserConut::PAGE).search(params[:search])
   end
 
-  def show
-    @user = User.find(params[:id]).page(params[:page]).per(Constants::UserConut::PAGE)
-  end
-
   def search
     @q = User.ransack(params[:q])
     @users =
