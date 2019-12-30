@@ -122,6 +122,17 @@
     <% end %>
   </div>
   <!-- feed -->
-  <div class="rigth">
+  <div class="right">
+    <div class="tab-content user-profile-contents" id="pills-tabContent">
+      <div class="tab-pane fade" id="pills-post" role="tabpanel" aria-labelledby="pills-post-tab">
+        <% if @user.posts.any? %>
+          <%= render 'show_latest', group: @posts %>
+        <% else %>
+          <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
+            投稿がありません
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

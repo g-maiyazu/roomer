@@ -1,0 +1,13 @@
+<div class="post-cards show-latest">
+  <% group.each do |post| %>
+    <div class="post-card">
+      <%= link_to image_tag(post.image.url, class: "img-fluid", alt: "post image"), post_path(post) %>
+    </div>
+  <% end %>
+</div>
+<div class="show-latest-footer">
+  <%= paginate group %>
+  <div class="loadmore-btn-wrapper p-0 d-flex">
+    <button class="loadmore-btn btn active mx-auto">さらに表示</button>
+  </div>
+</div>

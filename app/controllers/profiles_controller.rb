@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
+    @posts = @user.posts.page(params[:page]).per(Constants::PostConut::PAGE).search(params[:search])
   end
 
   def edit
