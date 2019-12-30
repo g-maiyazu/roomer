@@ -11,4 +11,13 @@ class User < ApplicationRecord
                                   uniqueness: true,
                                   length: { maximum: 20 }
   validates :email, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
+
+  # 検索メソッド
+  def self.search(search)
+    if search
+      where(['user_name LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
 end

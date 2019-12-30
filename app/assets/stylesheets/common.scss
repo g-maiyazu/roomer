@@ -70,6 +70,7 @@ button, textarea, select {
   width: 136px;
   height: 47px;
 }
+/*
 .search_container{
   box-sizing: border-box;
   position: relative;
@@ -101,6 +102,7 @@ button, textarea, select {
   top: -8px;
   outline : none;
 }
+*/
 .search{
   padding: 0 8rem;
   -webkit-box-flex: 1;
@@ -108,6 +110,18 @@ button, textarea, select {
   flex: 1;
   min-width: 31.9rem;
   padding-top: 10px;
+}
+input[type="search"] {
+  height: 3.2rem;
+  width: 100%;
+  -moz-border-radius: 0.8rem;
+  -webkit-border-radius: 0.8rem;
+  border-radius: 0.8rem;
+  border: solid 0.1rem #eae7e2;
+  background-color: #fbfbfb;
+  padding: 0 0 0 3rem;
+  font-size: 1.4rem;
+  box-sizing: border-box;
 }
 .btn-flat-border-registrer {
   display: inline-block;

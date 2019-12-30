@@ -1,19 +1,18 @@
 <header class="header_height">
   <div class="wrapper">
+
     <div class="outer">
+      <!-- ロゴ -->
       <div class="logo">
         <%= link_to image_tag('logo.png', class: "header-logo"), root_path %>
       </div>
+
+      <!-- 検索フォーム -->
       <div class="search">
-        <div class="header_search">
-          <%= form_tag(root_path,method:"get") do %>
-            <form method="get" action="#" class="search_container">
-              <input type="text" size="25" placeholder="キーワード検索">
-              <input type="submit" value="&#xf002">
-            </form>
-          <% end %>
-        </div>
+        <%= render 'layouts/search' %>
       </div>
+
+      <!-- ログイン後メニュー -->
       <% if user_signed_in? %>
         <div class="dropdown">
           <button class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
@@ -31,6 +30,9 @@
               <%= link_to "アカウント設定", edit_user_path %>
             </li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">投稿する</a></li>
+            <li role="presentation">
+              <%= link_to "すべてのユーザー", users_path %>
+            </li>            
             <li role="presentation" class="divider"></li>
             <li role="presentation">
               <%= link_to "ログアウト", logout_path, method: :delete %>
@@ -46,5 +48,6 @@
         </div>
       <% end %>
     </div>
+
   </div>
 </header>

@@ -1,5 +1,5 @@
 module Constants
   module UserConut
-    PAGEINATE = 24
+    PAGE = 24
   end
 end

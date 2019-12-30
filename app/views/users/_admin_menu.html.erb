@@ -1,0 +1,19 @@
+<div class="user-menu d-flex" style="width: 100%;">
+  <% if @user == current_user %>
+    <button class="btn edit-profile guest rounded-pill">プロフィールを編集</button>
+    <a class="btn logout rounded-pill" data-toggle="modal" data-target="#logout_modal">ログアウト</a>
+  <% elsif @user.guest? %>
+    <!-- なにも表示しない -->
+  <% else %>
+    <a class="btn delete rounded-pill" data-toggle="modal" data-target="#delete_user_modal">このユーザーを削除する</a>
+  <% end %>
+</div>
+
+<script src="https://unpkg.com/tippy.js@5"></script>
+<script>
+  tippy('.edit-profile.guest', {
+    content: '管理ユーザーは利用できません',
+    placement: 'top-start',
+    trigger: 'click',
+  });
+</script>
