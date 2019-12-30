@@ -44,6 +44,13 @@ button, textarea, select {
 .rounded-circle{
   border-radius: 50% !important;
 }
+.modal-body {
+  font-size: 1.1rem;
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 2rem;
+}
 
 /* header */
 .wrapper{
@@ -160,6 +167,8 @@ body {
 
 /* footer */
 footer {
+  background: #f6f5f4;
+  padding-top: 30px;
   text-align: center;
   height: 80px;
   color: #777;
@@ -498,4 +507,81 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+/* post */
+.post-form {
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 0 auto 1rem auto;
+  padding: 25px;
+  border-radius: 1rem;
+  max-width: 550px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  .preview-wrap {
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    height: 0;
+    width: 100%;
+    padding-bottom: 100%;
+
+    margin-bottom: 25px;
+    @include md { & { margin-bottom: 0; } }
+
+    .preview {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include box_sizing;
+      border-radius: 1rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: block;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 1rem;
+    }
+
+    .fa-camera {
+      z-index: 10;
+      font-size: 2.5rem;
+      color: rgba(255, 255, 255, 0.74);
+      position: absolute;
+      top       : 50%;
+      left      : 50%;
+      transform : translate(-50%, -50%);
+    }
+  }
+
+  .caption {
+    color: $color-black;
+    background-color: transparent;
+    height: 150px;
+    padding-top: 10px;
+    border: none;
+    &:focus {
+      color: $color-black;
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+}
+.post-body {
+  padding: 15px 15px;
+  @include sm { & { padding: 15px 0; } }
+
+  p.post-text {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
 }
