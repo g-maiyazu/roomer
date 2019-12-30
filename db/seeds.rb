@@ -6,6 +6,10 @@ user = User.create!(user_name: 'test0',
                     confirmed_at: Time.zone.now,
                     confirmation_sent_at: Time.zone.now,
                     admin: false)
+
+user.avatar = open("#{Rails.root}/db/fixtures/avatar1.png")
+user.save
+
 user.build_profile
 user.save
 
@@ -16,7 +20,7 @@ user.save
   password = 'password'
   admin = false
 
-  other_user = User.create!(user_name: user_name,
+  other_users = User.create!(user_name: user_name,
                             email: email,
                             password: password,
                             password_confirmation: password,
@@ -24,8 +28,9 @@ user.save
                             confirmation_sent_at: Time.zone.now,
                             admin: admin)
 
-  other_user.build_profile
-  other_user.save
+  other_users.avatar = open("#{Rails.root}/db/fixtures/avatar2.png")
+  other_users.build_profile
+  other_users.save
 end
 
 # 管理ユーザー
@@ -39,3 +44,38 @@ admin_user = User.create!(user_name: 'admin',
 
 admin_user.build_profile
 admin_user.save
+
+admin_user.avatar = open("#{Rails.root}/db/fixtures/avatar3.png")
+admin_user.save
+
+# 投稿
+users = User.order(:created_at).take(3)
+0.upto(10) do |n|
+  image = open("#{Rails.root}/db/fixtures/room1.png")
+  caption = Faker::Movie.quote
+  users[0].posts.create!(
+    image: image,
+    caption: caption,
+    created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
+    )
+end
+
+11.upto(20) do |n|
+  image = open("#{Rails.root}/db/fixtures/room2.png")
+  caption = Faker::Movie.quote
+  users[1].posts.create!(
+    image: image,
+    caption: caption,
+    created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
+    )
+end
+
+21.upto(30) do |n|
+  image = open("#{Rails.root}/db/fixtures/room3.png")
+  caption = Faker::Movie.quote
+  users[2].posts.create!(
+    image: image,
+    caption: caption,
+    created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
+    )
+end
