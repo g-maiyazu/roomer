@@ -123,15 +123,17 @@
   </div>
   <!-- feed -->
   <div class="right">
-    <div class="tab-content user-profile-contents" id="pills-tabContent">
-      <div class="tab-pane fade" id="pills-post" role="tabpanel" aria-labelledby="pills-post-tab">
-        <% if @user.posts.any? %>
-          <%= render 'show_latest', group: @posts %>
-        <% else %>
-          <div class="no-contents d-flex align-items-center justify-content-center mx-auto">
-            投稿がありません
-          </div>
-        <% end %>
+    <div id = "profile-photos">
+      <% if @user.posts.any? %>
+        <%= render 'show_latest', group: @posts %>
+      <% else %>
+          投稿がありません
+      <% end %>
+    </div>
+    <div class="show-latest-footer">
+      <%= paginate @posts %>
+      <div class="loadmore-btn-wrapper p-0 d-flex">
+        <button class="loadmore-btn btn active mx-auto">さらに表示</button>
       </div>
     </div>
   </div>

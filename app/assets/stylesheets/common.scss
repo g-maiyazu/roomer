@@ -51,6 +51,9 @@ button, textarea, select {
   flex: 1 1 auto;
   padding: 2rem;
 }
+ul, ol {
+  list-style: none;
+}
 
 /* header */
 .wrapper{
@@ -158,7 +161,7 @@ input[type="search"] {
 /* body */
 body {
   padding-top: 100px;
-  padding-bottom: 150px;
+  padding-bottom: 70px;
   min-height: 100vh;
   position: relative;
   box-sizing: border-box;
@@ -438,17 +441,34 @@ padding: 10px;
   margin: 4rem auto 6rem;
 }
 #main .left {
-  width: 45%;
+  width: 41rem;
   float: left;
 }
 #main .right {
-  width: 55%;
+  width: 50rem;
   margin: 0 1rem 0 4rem;
   float: left;
   overflow: hidden;
-  *zoom: 1;
-  overflow: hidden;
-  *zoom: 1;
+}
+#main .right #profile-photos {
+  margin: 0 0 4rem 0;
+  padding: 3rem 1.25rem 1rem;
+  overflow: auto;
+  background-size: contain;
+  position: relative;
+  left: 0.5rem;
+}
+.img-fluid-profile{
+  width: 20.4rem;
+  height: 20.4rem;
+  display: block;
+  margin: 0;
+  padding: 5px 5px;
+  float: left;
+}
+.row-profile {
+  margin-left: 1px;
+  margin-right: 1px;
 }
 table{
   width: 90%;
@@ -493,7 +513,12 @@ table tr:nth-child(odd){
 .user_image {
   padding-bottom: 4rem;
 }
-
+.show-latest-footer{
+  border-top: solid;
+  border-width: thin;
+  border-top-color: #eee;
+  text-align-last: right;
+}
 /* edit-profile */
 select {
   width: 110px;
