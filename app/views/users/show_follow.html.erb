@@ -1,6 +1,10 @@
 <div class="user-cards show-following row">
-  <%= render 'users/user_cards', group: @users %>
-</div>
+  <% if @users.any? %>
+    <%= render 'users/user_cards', group: @users %>
+  <% else %>
+      フォロー関係にあるユーザーはいません
+  <% end %>
+</div><br />
 <div class="show-following-footer">
   <%= paginate @users %>
   <div class="loadmore-btn-wrapper p-0 d-flex">
