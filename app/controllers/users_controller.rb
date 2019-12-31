@@ -29,9 +29,22 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following
+    render 'show_follow'
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follow'
+  end
+
   private
 
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end
+
 end

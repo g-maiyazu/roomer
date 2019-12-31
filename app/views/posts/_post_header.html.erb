@@ -1,13 +1,13 @@
 <div class="post-header d-flex align-items-center">
   <% if object.user.avatar? %>
     <%= link_to image_tag(object.user.avatar.mini.url, size: "50x50", class: "rounded-circle z-depth-0",
-                          alt: "avatar image"), profile_path(object.user), class: "mr-3" %>
+                          alt: "avatar image"), user_path(object.user), class: "mr-3" %>
   <% else %>
     <%= link_to image_tag("no_user.png", size: "50x50", class: "rounded-circle z-depth-0",
-                          alt: "avatar image"), profile_path(object.user), class: "mr-3" %>
+                          alt: "avatar image"), user_path(object.user), class: "mr-3" %>
   <% end %>
   <div class="post-header-names mr-auto" style="line-height: 20px;">
-    <%= link_to "@#{object.user.user_name}", profile_path(object.user), class: "post-header-username" %>
+    <%= link_to "@#{object.user.user_name}", user_path(object.user), class: "post-header-username" %>
   </div>
 
   <% if user_signed_in? %>

@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = '投稿されました'
-      redirect_to profile_path(current_user.id)
+      redirect_to user_path(current_user.id)
     else
       flash[:notice] = '投稿できませんでした。画像とキャプションを確認してください。'
       render 'posts/new'
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = '投稿が削除されました'
-    redirect_to profile_path(current_user)
+    redirect_to user_path(current_user)
   end
 
   private

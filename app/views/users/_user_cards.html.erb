@@ -5,10 +5,10 @@
       <div class="d-flex align-items-end justify-content-center mb-3">
         <% if user.avatar? %>
           <%= link_to image_tag(user.avatar.url,
-                                class: "#{ "logged_in" if user_signed_in? && !current_user.admin? } rounded-circle z-depth-0",alt: "avatar image"), profile_path(user.id) %>
+                                class: "#{ "logged_in" if user_signed_in? && !current_user.admin? } rounded-circle z-depth-0",alt: "avatar image"), user_path(user.id) %>
         <% else %>
           <%= link_to image_tag("no_user.png",
-                                class: "#{ "logged_in" if user_signed_in? && !current_user.admin? } rounded-circle z-depth-0", alt: "avatar image"), profile_path(user.id) %>
+                                class: "#{ "logged_in" if user_signed_in? && !current_user.admin? } rounded-circle z-depth-0", alt: "avatar image"), user_path(user.id) %>
         <% end %>
       </div>
       <!-- ユーザーカード：名前とユーザーネーム -->

@@ -2,18 +2,12 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_profile
 
-  def show
-    @user = User.find(params[:id])
-    @profile = @user.profile
-    @posts = @user.posts.page(params[:page]).per(Constants::PostConut::PAGE).search(params[:search])
-  end
-
   def edit
   end
 
   def update
     if @profile.update(profile_params)
-      redirect_to profile_path
+      redirect_to user_path
       flash[:notice] = 'プロフィールを更新しました'
     else
       redirect_to edit_profile_path
