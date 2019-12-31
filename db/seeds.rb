@@ -52,7 +52,7 @@ admin_user.save
 users = User.order(:created_at).take(3)
 0.upto(10) do |n|
   image = open("#{Rails.root}/db/fixtures/room1.png")
-  caption = Faker::Movie.quote
+  caption = 'これが私の部屋です。ポスターがお気に入りです。'
   users[0].posts.create!(
     image: image,
     caption: caption,
@@ -62,7 +62,7 @@ end
 
 11.upto(20) do |n|
   image = open("#{Rails.root}/db/fixtures/room2.png")
-  caption = Faker::Movie.quote
+  caption = 'これが私の部屋です。デスクがお気に入りです。'
   users[1].posts.create!(
     image: image,
     caption: caption,
@@ -72,10 +72,18 @@ end
 
 21.upto(30) do |n|
   image = open("#{Rails.root}/db/fixtures/room3.png")
-  caption = Faker::Movie.quote
+  caption = 'これが私の部屋です。ベッドがお気に入りです。'
   users[2].posts.create!(
     image: image,
     caption: caption,
     created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
     )
 end
+
+# リレーションシップ
+users = User.all
+user  = users.first
+following = users[2..30]
+followers = users[3..20]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

@@ -490,11 +490,13 @@ td.user-name {
   background-color: white;
   padding-left: 15px;
 }
+/*
 table tr:nth-child(odd){
   background-color: #eee
 }
+*/
 .user_info {
-  padding-bottom: 4rem;
+  padding-bottom: 1rem;
 }
 .user_image {
   padding-bottom: 4rem;
@@ -504,6 +506,15 @@ table tr:nth-child(odd){
   border-width: thin;
   border-top-color: #eee;
   text-align-last: right;
+}
+th.stats {
+  background-color: #f6f5f4;
+}
+td.stats{
+  background-color: #f6f5f4;
+}
+.follow-section{
+  padding-bottom: 5rem;
 }
 /* edit-profile */
 select {

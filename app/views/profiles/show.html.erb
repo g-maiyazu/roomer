@@ -9,8 +9,9 @@
 </div>
 
 <div id="main">
-  <!-- user_info -->
   <div class="left">
+
+    <!-- user_info -->
     <section class="user_info">
       <table>
         <tr class="separate">
@@ -115,12 +116,21 @@
         </tr>
       </table><br />
     </section>
+
+    <!-- stats -->
+    <section class="stats">
+      <%= render 'stats' %>
+    </section>
+
+    <section class ="prfile-edit">
     <% if user_signed_in? && current_user.id == @user.id %>
       <%= link_to edit_profile_path, class: "btn-square", data: {"turbolinks" => false} do %>
         <i class="fab fa fa-edit"></i> プロフィール編集
       <% end %>
     <% end %>
+    </section>
   </div>
+
   <!-- feed -->
   <div class="right">
     <div id = "profile-photos">

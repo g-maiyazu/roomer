@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
   }
 
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :show] do
     collection do
       get :search
     end
@@ -25,7 +25,14 @@ Rails.application.routes.draw do
     delete "logout", to: "users/sessions#destroy"
   end
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
   resources :profiles, only: [:show, :edit, :update]
 
   resources :posts, except: [:index]
+
 end
