@@ -5,4 +5,7 @@ module Constants
   module PostConut
     PAGE = 6
   end
+  module FollowConut
+    PAGE = 6
+  end
 end

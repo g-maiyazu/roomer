@@ -134,6 +134,7 @@
   <!-- feed -->
   <div class="right">
     <div id = "profile-photos">
+      <%= render 'follow_form', user: @user %>
       <% if @user.posts.any? %>
         <%= render 'show_latest', group: @posts %>
       <% else %>

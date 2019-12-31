@@ -68,6 +68,22 @@ button, textarea, select {
 ul, ol {
   list-style: none;
 }
+.btn {
+  font-size: 0.8rem;
+  font-weight: 700;
+  min-width: 100px;
+  height: 32px;
+
+  &.follow {
+    background-color: #fc8023;
+    color: #fff;
+  }
+
+  &.unfollow {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #fc8023;
+  }
+}
 
 /* header */
 .wrapper{
@@ -515,6 +531,14 @@ td.stats{
 }
 .follow-section{
   padding-bottom: 5rem;
+}
+form#new_relationship {
+  padding-left: 45px;
+  padding-bottom: 15px;
+}
+form#edit_relationship_1 {
+  padding-left: 45px;
+  padding-bottom: 15px;
 }
 /* edit-profile */
 select {
