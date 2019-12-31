@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
-  before_action :correct_user, only: %i[edit update destroy]
+  before_action :correct_user, only: %i[edit update]
 
   def show
     @post = Post.find_by(id: params[:id])
@@ -37,9 +37,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
-    flash[:success] = '投稿が削除されました'
-    redirect_to current_user
+    flash[:notice] = '投稿が削除されました'
+    redirect_to profile_path(current_user)
   end
 
   private
