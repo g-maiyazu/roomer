@@ -126,7 +126,7 @@ input[type="search"] {
   border-radius: 0.8rem;
   border: solid 0.1rem #eae7e2;
   background-color: #fbfbfb;
-  padding: 0 0 0 3rem;
+  padding: 0 0 0 1rem;
   font-size: 1.4rem;
   box-sizing: border-box;
 }
@@ -353,8 +353,6 @@ img.img-fluid-home {
 .feed-contents {
 
   .nav {
-    max-width: 700px;
-    position: relative;
 
     &::after {
       content: "";
@@ -362,7 +360,6 @@ img.img-fluid-home {
       top: 0; left: 0;
       width: 100%; height: 100%;
       display: block;
-      border: 1px solid $color-black;
       border-radius: 0.25rem;
       z-index: 0;
     }
@@ -371,11 +368,6 @@ img.img-fluid-home {
   .nav-item {
     margin: 0;
     z-index: 1;
-
-    &:nth-child(2) {
-      border-right: 1px solid $color-black;
-      border-left: 1px solid $color-black;
-    }
 
     &:first-child .nav-link.active {
       border-top-left-radius: 0.25rem;
@@ -404,6 +396,7 @@ img.img-fluid-home {
     .nav-link {
       font-size: 0.9rem;
       height: 40px;
+      width: 60px;
     }
   }
 
@@ -440,6 +433,7 @@ img.img-fluid-home {
       height: auto;
       padding: 1.25rem 15px 15px 15px;
       @include sm { & { padding: 1.25rem 0 15px 0 } }
+      border-top: 1px solid #dee2e6;
     }
   
     .post-footer {
@@ -450,6 +444,7 @@ img.img-fluid-home {
       .post-header {
         padding: 1.5rem 15px 15px 15px;
         @include sm { & { padding: 2rem 0 15px 0 } }
+        margin-top: 50px;
       }
     }
 
@@ -933,15 +928,12 @@ select {
     top: 0; left: 0;
     width: 100%; height: 100%;
     display: block;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 }
 @include sm {
   .img-col {
     img { border-radius: 0.25rem; }
     &::after {
-      border: 1px solid rgba(0, 0, 0, 0.05);
       border-radius: 0.25rem;
     }
   }
