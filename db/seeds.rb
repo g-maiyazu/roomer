@@ -34,7 +34,7 @@ user.save
 end
 
 # 管理ユーザー
-admin_user = User.create!(user_name: 'admin',
+admin_user = User.create!(user_name: '管理人さん',
                           email: 'admin@mail.com',
                           password: 'password',
                           password_confirmation: 'password',
@@ -49,8 +49,8 @@ admin_user.avatar = open("#{Rails.root}/db/fixtures/avatar3.png")
 admin_user.save
 
 # 投稿
-users = User.order(:created_at).take(3)
-0.upto(10) do |n|
+users = User.order(:created_at).take(6)
+0.upto(5) do |n|
   image = open("#{Rails.root}/db/fixtures/room1.png")
   caption = 'これが私の部屋です。ポスターがお気に入りです。'
   users[0].posts.create!(
@@ -60,7 +60,7 @@ users = User.order(:created_at).take(3)
     )
 end
 
-11.upto(20) do |n|
+6.upto(10) do |n|
   image = open("#{Rails.root}/db/fixtures/room2.png")
   caption = 'これが私の部屋です。デスクがお気に入りです。'
   users[1].posts.create!(
@@ -70,10 +70,40 @@ end
     )
 end
 
-21.upto(30) do |n|
+11.upto(15) do |n|
   image = open("#{Rails.root}/db/fixtures/room3.png")
   caption = 'これが私の部屋です。ベッドがお気に入りです。'
   users[2].posts.create!(
+    image: image,
+    caption: caption,
+    created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
+    )
+end
+
+16.upto(20) do |n|
+  image = open("#{Rails.root}/db/fixtures/room4.png")
+  caption = 'これが私の部屋です。ラックがお気に入りです。'
+  users[3].posts.create!(
+    image: image,
+    caption: caption,
+    created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
+    )
+end
+
+21.upto(25) do |n|
+  image = open("#{Rails.root}/db/fixtures/room5.png")
+  caption = 'これが私の部屋です。ソファがお気に入りです。'
+  users[4].posts.create!(
+    image: image,
+    caption: caption,
+    created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
+    )
+end
+
+26.upto(30) do |n|
+  image = open("#{Rails.root}/db/fixtures/room6.png")
+  caption = 'これが私の部屋です。証明がお気に入りです。'
+  users[5].posts.create!(
     image: image,
     caption: caption,
     created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
