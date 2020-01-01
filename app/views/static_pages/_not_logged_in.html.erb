@@ -1,0 +1,42 @@
+<div class="home-contents">
+  <div class="home-header d-flex flex-column align-items-center">
+    <div class="home-catch text-center font-weight-bold mx-auto mb-2">
+      自分の部屋の<br class="d-sm-none">写真を共有しよう
+    </div>
+  </div><br/>
+
+  <div class="post-cards-nav d-flex align-items-center">
+    <div class="post-cards-nav-header mr-auto">おすすめの投稿</div>
+  </div>
+
+  <div class="tab-content" id="pills-tabContent">
+    <div class="post-cards latest row">
+      <% @latest_posts.each do |post| %>
+        <div class="post-card col-6 col-sm-4">
+          <div class="post-card-img">
+            <%= link_to image_tag(post.image.url, class: "img-fluid-home", alt: "post image"), about_path %>
+          </div>
+          <div class="post-card-footer d-flex align-items-center">
+            <% if post.user.avatar?%>
+              <%= link_to image_tag(post.user.avatar.mini.url, size: "35x35", class: "rounded-circle z-depth-0",
+                                    alt: "avatar image"), about_path, class: "mr-3" %>
+            <% else %>
+              <%= link_to image_tag("no_user.png", size: "35x35", class: "rounded-circle z-depth-0",
+                                    alt: "avatar image"), about_path, class: "mr-3" %>
+            <% end %>
+            <div class="post-footer-names" style="line-height: 20px;">
+              <%= link_to "@#{post.user.user_name}", about_path, class: "post-footer-username" %></a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+    <div class="post-cards-footer latest">
+      <%= paginate @latest_posts %>
+      <div class="loadmore-btn-wrapper p-0 d-flex">
+        <button class="loadmore-btn btn active mx-auto">さらに表示</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]).page(params[:page]).per(Constants::UserConut::PAGE)
+    @user = User.find(params[:id])
+    @profile = @user.profile
+    @posts = @user.posts.page(params[:page]).per(Constants::PostConut::PAGE).search(params[:search])
   end
 
   def search
@@ -27,9 +29,22 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following.page(params[:page]).per(Constants::FollowConut::PAGE)
+    render 'show_follow'
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers.page(params[:page]).per(Constants::FollowConut::PAGE)
+    render 'show_follow'
+  end
+
   private
 
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end
+
 end

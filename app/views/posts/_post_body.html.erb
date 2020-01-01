@@ -1,0 +1,6 @@
+<div class="post-body">
+  <% if !object.caption.blank? %>
+    <%= simple_format(object.caption, class: "post-text mb-2") %>
+  <% end %>
+  <small><%= date_format(object.created_at) %></small>
+</div>

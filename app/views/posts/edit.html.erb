@@ -1,0 +1,31 @@
+<% provide :title, "投稿を編集" %>
+
+<div class="page-header d-flex align-items-center mx-auto mb-4">投稿を編集する</div>
+
+<%= form_for @post do |f| %>
+  <div class="post-form">
+    <div class="preview-wrap" onClick="$('#file').click()">
+      <div id="img_field">
+        <% if @post.image.url.present? %>
+          <%= image_tag(@post.image.url, class: "preview") %>
+        <% end %>
+      </div>
+      <i class="fas fa-camera" onClick="$('#file').click()"></i>
+    </div>
+
+    <%= f.file_field :image, class: "image", style: "display: none;", id: "file", accept: 'image/jpeg,image/gif,image/png' %>
+    <%= f.hidden_field :image_cache %>
+
+
+    <%= f.text_area :caption, class: "caption", placeholder: "キャプションを入力..." %>
+
+
+  </div>
+
+  <div class="post-form-btns text-right mb-4">
+    <%= link_to "キャンセル", post_path, class: "btn post-form-btn mr-2", style: "border: none;" %>
+    <%= f.submit "編集を完了", { class: "btn post-form-btn mr-3" } %>
+  </div>
+<% end %>
+
+<%= render 'posts/post_form_script' %>

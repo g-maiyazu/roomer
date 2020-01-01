@@ -24,12 +24,14 @@
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
             <li role="presentation">
-              <%= link_to "マイルーム", profile_path(current_user) %>
+              <%= link_to "マイルーム", user_path(current_user) %>
             </li>
             <li role="presentation">
               <%= link_to "アカウント設定", edit_user_path %>
             </li>
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">投稿する</a></li>
+            <li role="presentation">
+              <%= link_to "投稿する", new_post_path %>
+            </li> 
             <li role="presentation">
               <%= link_to "すべてのユーザー", users_path %>
             </li>            

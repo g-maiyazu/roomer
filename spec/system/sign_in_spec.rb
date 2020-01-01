@@ -14,6 +14,6 @@ RSpec.describe 'Sign in', type: :system do
     fill_in 'パスワード', with: user.password
     click_button 'ログインする'
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq profile_path(user.id)
   end
 end
