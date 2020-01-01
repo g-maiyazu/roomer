@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   
   resources :profiles, only: [:show, :edit, :update]
 
-  resources :posts, except: [:index]
+  resources :posts, except: [:index] 
+
+  resources :likes, only: [:create, :destroy]
 
   resources :relationships, only: [:create, :destroy]
 end

@@ -13,9 +13,9 @@
   <% if user_signed_in? %>
     <% if object.user == current_user %>
       <div class="dropdown mr-1">
-        <button type="button" class="btn dropdown-toggle setting-btn py-0 px-1", data-toggle="dropdown", data-offset="0,10", id="post-dropdown-<%= object.id %>",
+        <button type="button" class="btn-post dropdown-toggle setting-btn py-0 px-1", data-toggle="dropdown", data-offset="0,10", id="post-dropdown",
                           aria-haspopup="true", aria-expanded="false", style="box-shadow: none" ><i class="fas fa-ellipsis-h"></i></button>
-        <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-left">
 
           <div class="dropdown-divider"></div>
           <%= link_to edit_post_path(object), class: "dropdown-item d-flex align-items-center" do %>
@@ -30,35 +30,15 @@
       </div>
     <% elsif current_user.admin?  %>
       <div class="dropdown mr-1">
-        <button type="button" class="btn dropdown-toggle setting-btn py-0 px-1", data-toggle="dropdown", data-offset="0,10",
+        <button type="button" class="btn-post dropdown-toggle setting-btn", data-toggle="dropdown", data-offset="0,10",
                           aria-haspopup="true", aria-expanded="false", style="box-shadow: none" ><i class="fas fa-ellipsis-h"></i></button>
-        <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-left">
           <a class="dropdown-item d-flex align-items-center" style="color: #f90e43; cursor: pointer;" data-toggle="modal" data-target="#post_modal_<%= object.id %>">
             <div style="width: 100%">投稿を削除</div><i class="fas fa-trash-alt"></i>
           </a>
         </div>
       </div>
-    <% else %>
-      <div class="dropdown d-none d-sm-block" style="margin-right: 15px;">
-        <button type="button" class="btn dropdown-toggle setting-btn py-0 px-1", data-toggle="dropdown", data-offset="-18,10",
-                          aria-haspopup="true", aria-expanded="false", style="box-shadow: none" ><i class="fas fa-ellipsis-h"></i></button>
-        <div class="dropdown-menu dropdown-menu-left">
-          <a href="https://twitter.com/share?url=<%= post_url(object) %>" target="_blank" rel="nofollow" class="dropdown-item opensub d-flex align-items-center">
-            <div style="width: 100%">投稿を共有</div><i class="fab fa-twitter" style="position: relative; left: 2px;"></i>
-          </a>
-        </div>
-      </div>
     <% end %>
-  <% else %>
-    <div class="dropdown mr-1">
-      <button type="button" class="btn dropdown-toggle setting-btn py-0 px-1", data-toggle="dropdown", data-offset="0,10",
-                        aria-haspopup="true", aria-expanded="false", style="box-shadow: none" ><i class="fas fa-ellipsis-h"></i></button>
-      <div class="dropdown-menu dropdown-menu-right">
-        <a href="https://twitter.com/share?url=<%= post_url(object) %>" target="_blank" rel="nofollow" class="dropdown-item opensub d-flex align-items-center">
-          <div style="width: 100%">投稿を共有</div><i class="fab fa-twitter" style="position: relative; left: 2px;"></i>
-        </a>
-      </div>
-    </div>
   <% end %>
 </div>
 
