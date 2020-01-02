@@ -1,0 +1,7 @@
+<%= form_with model: object.likes.find_by(user_id: current_user.id), html: { method: :delete } do |f| %>
+  <div><%= hidden_field_tag :post_id, object.id %></div>
+  <%= button_tag(class: "btn unlike-sm rounded-pill d-flex d-sm-none align-items-center justify-content-center px-3") do %>
+    <i class="fas fa-check" style="font-size: 1.1rem; position: relative; top: 1px;"></i>
+  <% end %>
+  <%= f.submit "いいね！済み", class: "btn unlike rounded-pill d-none d-sm-flex align-items-center justify-content-center px-3" %>
+<% end %>
