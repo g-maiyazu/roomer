@@ -1,0 +1,21 @@
+<% @comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+
+    <% if comment.user.avatar?%>
+      <%= link_to image_tag(comment.user.avatar.url, size: "35x35", class: "rounded-circle z-depth-0",
+                            alt: "avatar image"), user_path(comment.user), class: "mr-3" %>
+    <% else %>
+      <%= link_to image_tag("no_user.png", size: "35x35", class: "rounded-circle z-depth-0",
+                            alt: "avatar image"), user_path(post.user), class: "mr-3" %>
+    <% end %>
+    <p><%= link_to "#{comment.user.user_name}さん", user_path(comment.user.id) %>
+    
+    <span class="timestamp">
+      <%= time_ago_in_words(comment.created_at) %>前
+    </span></p>
+    <p><%= comment.content %></p>
+    <p><span class= "batu">
+      <%= link_to "コメント削除", [@post,comment], class: "btn", style: "color: #f90e43;", method: :delete if comment.user == current_user %>
+    </span></p>
+  <% end %>
+<% end %>

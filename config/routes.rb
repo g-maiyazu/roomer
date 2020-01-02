@@ -30,10 +30,12 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  
+
   resources :profiles, only: [:show, :edit, :update]
 
-  resources :posts, except: [:index] 
+  resources :posts, except: [:index] do
+    resources :comments, only: [:create, :destroy]
+  end
 
   resources :likes, only: [:create, :destroy]
 
