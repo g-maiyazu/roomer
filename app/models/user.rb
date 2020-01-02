@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :posts, dependent: :destroy
-  has_many :microposts
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -10,6 +9,9 @@ class User < ApplicationRecord
                                   foreign_key: "followed_id",
                                   dependent:   :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
+  has_many :comments, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 

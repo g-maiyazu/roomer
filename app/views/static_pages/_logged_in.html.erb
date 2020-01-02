@@ -1,46 +1,8 @@
 <div class="feed-contents">
-  <ul class="nav nav-pills no-gutters mx-auto" id="pills-tab" role="tablist">
-    <li class="nav-item col-4">
-      <a class="nav-link" id="pills-following-tab" data-toggle="pill" href="#pills-following" role="tab" aria-controls="pills-following" aria-selected="true">フィード</a>
-    </li>
-    <li class="nav-item col-4">
-      <a class="nav-link" id="pills-latest-tab" data-toggle="pill" href="#pills-latest" role="tab" aria-controls="pills-latest" aria-selected="false">新着</a>
-    </li>
-  </ul><br />
-
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade" id="pills-following" role="tabpanel" aria-labelledby="pills-following-tab">
-      <% if @feed_posts.any? %>
-        <div class="following-posts-container no-gutters mx-sm-auto" style="max-width: 700px">
-          <% @feed_posts.each do |post| %>
-            <div class="post-frame no-gutters">
-              <%= render 'posts/post_header', object: post %>
-              <div class="col img-col">
-                <%= image_tag post.image.url, size: "300x300", class: "img-fluid-home" %>
-              </div>
-              <div class="col">
-                <%= render 'posts/post_body', object: post %>
-              </div>
-
-              <%= render 'posts/post_modal', object: post %>
-            </div>
-          <% end %>
-        </div>
-        <div class="following-posts-footer">
-          <%= paginate @feed_posts %>
-          <div class="loadmore-btn-wrapper p-0 d-flex">
-            <button class="loadmore-btn btn active mx-auto">さらに表示</button>
-          </div>
-        </div>
-      <% else %>
-        <%= render 'no_feed' %>
-      <% end %>
-    </div>
-    
-    <div class="tab-pane fade" id="pills-latest" role="tabpanel" aria-labelledby="pills-latest-tab">
-
-      <div class="home-post-cards latest row">
-        <% @latest_posts.each do |post| %>
+  <div class="tab-pane">
+    <% if @feed_posts.any? %>
+      <div class="home-post-cards row">
+        <% @feed_posts.each do |post| %>
           <div class="post-card col-6 col-sm-4">
             <div class="post-card-img">
               <%= link_to image_tag(post.image.url, class: "img-fluid-home", alt: "post image"), post_path(post) %>
@@ -59,42 +21,12 @@
             </div>
           </div>
         <% end %>
-      </div>
-
-      <div class="home-posts-footer latest">
-        <%= paginate @latest_posts %>
-        <div class="loadmore-btn-wrapper p-0 d-flex">
-          <button class="loadmore-btn btn active mx-auto">さらに表示</button>
-        </div>
-      </div>
-
+      <% else %>
+        <%= render 'no_feed' %>
+      <% end %>
     </div>
+            <div class="following-posts-footer">
+          <%= paginate @feed_posts %>
+        </div>
   </div>
 </div>
-
-<script>
-  $(function () {
-    var index = 0;
-
-    if (window.performance) {
-      if (performance.navigation.type === 1 || performance.navigation.type === 2) {
-        if ($.cookie('index')) {
-          index = $.cookie('index');
-          $('#pills-tab li a').eq(index).addClass('active');
-          $('#pills-tabContent .tab-pane').eq(index).addClass('show active');
-        }
-      } else {
-        $.cookie('index', index);
-        $('#pills-tab li:first-child a').addClass('active');
-        $('#pills-tabContent .tab-pane:first-child').addClass('show active');
-      }
-    }
-
-    $('#pills-tab li').click(function() {
-      if (index != $('#pills-tab li').index(this)) {
-        index = $('#pills-tab li').index(this);
-        $.cookie('index', index);
-      }
-    });
-  });
-</script>

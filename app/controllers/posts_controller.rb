@@ -4,6 +4,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @post_likes = @post.liked_users.page(params[:page]).per(Constants::UserConut::PAGE)
+    @comments = @post.comments.page(params[:page]).per(10)
+    @comment = @post.comments.build
   end
 
   def new
