@@ -4,6 +4,6 @@
     <i class="far fa-thumbs-up" style="font-size: 1.1rem;"></i>
   <% end %>
   <%= button_tag(class: "btn like rounded-pill d-none d-sm-flex align-items-center justify-content-center px-3") do %>
-    いいね！<i class="far fa-thumbs-up"></i>
+    <%= content_tag :span, "#{object.likes.count}" %>いいね！
   <% end %>
 <% end %>

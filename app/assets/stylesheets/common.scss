@@ -416,7 +416,7 @@ img.img-fluid-home {
     .no-contents-explanation {
       max-width: 440px;
       font-size: 0.9rem;
-      padding: 0 30px;
+      text-align: left;
     }
   }
 
@@ -793,12 +793,6 @@ table tr:nth-child(odd){
 }
 .user_image {
   padding-bottom: 4rem;
-}
-.show-latest-footer{
-  border-top: solid;
-  border-width: thin;
-  border-top-color: #eee;
-  text-align-last: right;
 }
 th.stats {
   background-color: #f6f5f4;

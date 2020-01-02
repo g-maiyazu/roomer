@@ -43,21 +43,3 @@ $(function() {
     readURL(this);
   });
 });
-
-// 投稿
-$(function() {
-  $('.show-latest').infiniteScroll({
-    path : '.show-latest-footer nav.pagination a[rel=next]',
-    append : '.show-latest .post-card',
-    history: false,
-    button: '.show-latest-footer .loadmore-btn',
-    scrollThreshold: false,
-    hideNav: '.show-latest-footer .pagination'
-  })
-})
-$(function () {
-  if($(".show-latest-footer nav.pagination")[0]) {
-  } else {
-      $(".show-latest-footer .loadmore-btn").hide();
-  }
-});
