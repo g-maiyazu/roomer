@@ -10,7 +10,6 @@
 </div>
 
 <div class="post-container no-gutters mx-sm-auto" style="max-width: 700px">
-
   <%= render 'posts/post_header', object: @post %>
   <div class="col img-col">
     <%= image_tag @post.image.url, size: "700x500", class: "img-fluid" %>
@@ -18,13 +17,12 @@
   <div class="col">
     <%= render 'posts/post_body', object: @post %>
   </div>
-
   <div class="col comment-form">
     <%= render partial: 'comments/comment_form', :locals => {:comment => @comment, :post => @post} %>
   </div>
   <div class="col comment-index">
     <%= render partial: 'comments/comment_index', :locals => {:comment => @comment, :post => @post} %>
   </div>
-
 </div>
+
 <%= render 'posts/post_modal', object: @post %>

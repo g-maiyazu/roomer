@@ -44,7 +44,14 @@ button, textarea, select {
 .rounded-circle{
   border-radius: 50% !important;
 }
-
+.modal{
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  top: 0;
+  margin-top: 5px;
+  overflow: visible;
+}
 .modal-body {
   font-size: 1.1rem;
   position: relative;
@@ -64,7 +71,6 @@ button, textarea, select {
   border-bottom-right-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
 }
-
 ul, ol {
   list-style: none;
 }
@@ -82,6 +88,11 @@ ul, ol {
   &.unfollow {
     background-color: rgba(0, 0, 0, 0.1);
     color: rgb(223, 86, 86);
+  }
+
+  &.comment {
+    background-color: #b4b8bd;
+    color: #fff;
   }
 }
 
@@ -189,7 +200,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .page-header {
-  width: fit-content;
+  /* width: fit-content; */
   font-size: 1.8rem;
   padding-bottom: 9px;
   margin: 20px 0 20px;
@@ -957,7 +968,13 @@ select {
     margin: 0;
   }
 }
+.like-form {
+  padding: 5px 0 5px 0;
+}
+#post-dropdown {
 
+  padding: 6px 4px;
+}
 .img-col {
   position: relative;
   
