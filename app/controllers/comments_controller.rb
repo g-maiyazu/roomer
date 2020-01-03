@@ -4,10 +4,10 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-      flash[:notice] = "コメントを投稿しました。"
+      flash[:notice] = 'コメントを投稿しました。'
       redirect_to post_path(@post)
     else
-      flash[:alert] = "コメントを投稿できませんでした。140字以内で入力してください。"
+      flash[:alert] = 'コメントを投稿できませんでした。140字以内で入力してください。'
       redirect_to post_path(@post)
     end
   end
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find_by(id: params[:id])
     @comment.destroy
-    flash[:notice] = "コメントを削除しました。"
+    flash[:notice] = 'コメントを削除しました。'
     redirect_to request.referer || post_path(@post)
   end
 

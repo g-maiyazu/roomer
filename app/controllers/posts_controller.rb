@@ -56,5 +56,4 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     redirect_to(root_url) unless (@post.user == current_user) || current_user.admin?
   end
-
 end

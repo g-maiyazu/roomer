@@ -35,7 +35,9 @@ class Post < ApplicationRecord
   # お気に入り通知メソッド
   def create_notification_by(current_user)
     # すでにお気に入りされているか確認
-    like_check = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
+    like_check = Notification.where(
+      ['visitor_id = ? and visited_id = ? and post_id = ? and action = ? ', current_user.id, user_id, id, 'like']
+    )
     # お気に入りされていない場合のみ、通知レコードを作成
     if like_check.blank?
       notification = current_user.active_notifications.new(
