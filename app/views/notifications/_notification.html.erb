@@ -1,0 +1,11 @@
+<div class="user-view clearfix ">
+  <%= link_to user_path(notification.visitor) do %>
+    <%= image_tag notification.visitor.avatar.url, class:"user-thumb", style:"width: 60px;"%>
+    <%= link_to notification.visitor.user_name, notification.visitor %><%= notification_form(notification) %>
+  <% end %><br />
+
+  <div class="notification-time">
+    <%= "#{date_format(notification.created_at)}" %>
+  </div></p>  
+
+</div>

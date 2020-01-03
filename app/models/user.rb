@@ -12,6 +12,12 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
   has_many :comments, dependent: :destroy
+  has_many :active_notifications, class_name: "Notification",
+                                  foreign_key: "visitor_id",
+                                  dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification",
+                                   foreign_key: "visited_id",
+                                   dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
@@ -56,5 +62,17 @@ class User < ApplicationRecord
                      WHERE follower_id = :user_id"
     Post.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
+  end
+
+  # フォロー通知メソッド
+  def create_notification_follow(current_user)
+    follow_check = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ", current_user.id, id, 'follow'])
+    if follow_check.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 end
