@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.all.page(params[:page]).per(Constants::UserConut::PAGE).search(params[:search])
+    @users = User.all.page(params[:page]).per(9).search(params[:search])
   end
 
   def show

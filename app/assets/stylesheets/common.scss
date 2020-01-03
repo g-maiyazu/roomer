@@ -173,6 +173,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .page-header {
+  width: fit-content;
+  font-size: 1.8rem;
   padding-bottom: 9px;
   margin: 20px 0 20px;
   border-bottom: 1px solid #eeeeee;
@@ -670,6 +672,21 @@ img.img-fluid-home {
 }
 
 /* index */
+.row:before {
+  content: none;
+}
+.container:before {
+  content: none;
+}
+.user-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 0 15px;
+  margin-bottom: 15px;
+  @include sm { & { grid-template-columns: 1fr 1fr 1fr; margin-bottom: 25px; } }
+  @include md { & { gap: 20px; padding: 0 20px; margin-bottom: 30px; } }
+}
 .user-card {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
@@ -955,7 +972,8 @@ select {
 .user-view.clearfix {
   border-bottom: 1px solid #dee2e6;
   padding-top: 10px;
+  width: fit-content;
 }
 .notification-time {
-  padding-left: 10%;
+  padding: 2% 16.5%;
 }
