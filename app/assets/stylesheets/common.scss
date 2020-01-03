@@ -707,7 +707,7 @@ img.img-fluid-home {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   height: 230px;
-  @include md { & { height: 280px; } }
+  @include md { & { height: 200px; } }
   padding: 13px 20px;
   overflow: hidden;
 
@@ -746,7 +746,9 @@ img.img-fluid-home {
 
       .user-username {
         color: rgba(0, 0, 0, 0.4);
-        font-size: 0.85rem;
+        font-size: 1.5rem;
+        text-align: left;
+        padding: 10px 0 10px 20px;
       }
     }
   }
