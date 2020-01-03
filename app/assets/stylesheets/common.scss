@@ -75,13 +75,13 @@ ul, ol {
   height: 32px;
 
   &.follow {
-    background-color: #fc8023;
+    background-color: rgb(223, 86, 86);
     color: #fff;
   }
 
   &.unfollow {
     background-color: rgba(0, 0, 0, 0.1);
-    color: #fc8023;
+    color: rgb(223, 86, 86);
   }
 }
 
@@ -209,10 +209,9 @@ padding: 10px;
   transition: .4s;
 }
 .btn-flat-border:hover {
-  background: #fc8023;
+  background: rgb(223, 86, 86);
   color: white;
 }
-
 .first{
   color: #000;
   font-size: 62.5%;
@@ -739,7 +738,7 @@ img.img-fluid-home {
 }
 #main .right #profile-photos {
   margin: 0 0 4rem 0;
-  padding: 3rem 1.25rem 1rem;
+  padding: 1rem 1.25rem 1rem;
   overflow: auto;
   background-size: contain;
   position: relative;
@@ -950,4 +949,13 @@ select {
 .col.comment-index {
   padding-top: 30px;
   padding-bottom: 20px;
+}
+
+ /* notification */
+.user-view.clearfix {
+  border-bottom: 1px solid #dee2e6;
+  padding-top: 10px;
+}
+.notification-time {
+  padding-left: 10%;
 }

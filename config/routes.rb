@@ -40,4 +40,6 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :notifications, only: :index
 end
