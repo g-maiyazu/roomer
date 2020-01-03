@@ -85,6 +85,22 @@ ul, ol {
   }
 }
 
+/* pagination */
+.pagination {
+  padding-left: 37%;
+}
+.pagination>li>a {          
+  border: none;
+  color: #696969;
+}
+.pagination>.active>a {     
+  background: rgb(223, 86, 86);
+  border-radius: 15px;
+}
+.pagination>li>a:hover {        
+  border-radius: 15px;
+}
+
 /* header */
 .wrapper{
   min-width: 100rem;
@@ -280,7 +296,7 @@ img.img-fluid-home {
   }
   @include md {
     .home-header {
-      border-radius: 0.25rem;
+      border-radius: 0.45rem;
       margin: 0 5px 0px 5px;
       padding: 60px 60px;
     }
