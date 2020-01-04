@@ -23,9 +23,10 @@
           <% end %>
 
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item d-flex align-items-center" id="post-dropdown-delete-<%= object.id %>" style="color: #f90e43; cursor: pointer;" data-toggle="modal" data-target="#post_modal_<%= object.id %>">
+          <%= link_to post_path(object),  class: "dropdown-item d-flex align-items-center", method: :delete, data: {confirm: "本当に削除しますか?", cancel: "キャンセル", commit: "削除"} do %>
             <div style="width: 100%">投稿を削除</div><i class="fas fa-trash-alt"></i>
-          </a>
+          <% end %>
+
         </div>
       </div>
     <% elsif current_user.admin?  %>
@@ -33,9 +34,9 @@
         <button type="button" class="btn-post dropdown-toggle setting-btn", data-toggle="dropdown", data-offset="0,10",
                           aria-haspopup="true", aria-expanded="false", style="box-shadow: none" ><i class="fas fa-ellipsis-h"></i></button>
         <div class="dropdown-menu dropdown-menu-left">
-          <a class="dropdown-item d-flex align-items-center" style="color: #f90e43; cursor: pointer;" data-toggle="modal" data-target="#post_modal_<%= object.id %>">
+          <%= link_to post_path(object),  class: "dropdown-item d-flex align-items-center", method: :delete, data: {confirm: "本当に削除しますか?", cancel: "キャンセル", commit: "削除"} do %>
             <div style="width: 100%">投稿を削除</div><i class="fas fa-trash-alt"></i>
-          </a>
+          <% end %>
         </div>
       </div>
     <% end %>
