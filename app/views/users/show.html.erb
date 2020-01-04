@@ -134,6 +134,12 @@
           <i class="fas fa-user-slash"></i> 退会申請
         <% end %>
       </div>
+    <% elsif current_user.admin?  %>
+      <div class="user-delete-link">
+        <%= link_to registration_path(@user), class: "btn-square", method: :delete, data: { confirm: "本当に退会させてもよろしいですか？" } do %>
+          <i class="fas fa-user-slash"></i> 強制退会
+        <% end %>
+      </div>
     <% end %>
     </section>
   </div>
