@@ -24,6 +24,6 @@ module ApplicationHelper
 
   # 未確認の通知を確認する
   def unchecked_notifications
-    @notifications=current_user.passive_notifications.where(checked: false)
+    notifications = current_user.passive_notifications.where(checked: false)
   end
 end

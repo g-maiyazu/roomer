@@ -29,6 +29,9 @@ Style/EmptyMethod:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/GuardClause:
+  Enabled: false
+
 Style/IdenticalConditionalBranches:
   Enabled: false
 
@@ -38,17 +41,20 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 120
-
 Metrics/MethodLength:
   Max: 20
 
-Rails/LexicallyScopedActionFilter:
-  Enabled: false
+Layout/LineLength:
+  Max: 120
 
 Lint/UselessAssignment:
   Enabled: false
 
 Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
+
+Rails/InverseOf:
   Enabled: false
