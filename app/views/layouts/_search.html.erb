@@ -1,4 +1,4 @@
-<div class:="inline-block">
+<div class="inline-block">
   <%= form_tag(yield(:path), method: :get) do %>
     <%= hidden_field_tag :display_number, params[:display_number] %>
     <%= search_field_tag :search, params[:search], placeholder: "キーワード検索...", class: "searchfield" %>
