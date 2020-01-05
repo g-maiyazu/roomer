@@ -1,11 +1,5 @@
 module Constants
-  module UserConut
-    PAGE = 8
-  end
-  module PostConut
-    PAGE = 6
-  end
-  module FollowConut
-    PAGE = 6
+  module Page
+    Count = 9
   end
 end

@@ -2,25 +2,13 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.all.page(params[:page]).per(9).search(params[:search])
+    @users = User.all.page(params[:page]).per(Constants::Page::Count).search(params[:search])
   end
 
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
-    @posts = @user.posts.page(params[:page]).per(Constants::PostConut::PAGE).search(params[:search])
-  end
-
-  def search
-    @q = User.ransack(params[:q])
-    @users =
-      if params[:q].nil?
-        @q.result(distinct: true).page(params[:page]).per(24)
-      elsif params[:q][:user_name_cont].blank?
-        User.none
-      else
-        @q.result(distinct: true).page(params[:page]).per(24)
-      end
+    @posts = @user.posts.page(params[:page]).per(Constants::Page::Count).search(params[:search])
   end
 
   def destroy
@@ -31,13 +19,13 @@ class UsersController < ApplicationController
 
   def following
     @user = User.find(params[:id])
-    @users = @user.following.page(params[:page]).per(Constants::FollowConut::PAGE)
+    @users = @user.following.page(params[:page]).per(Constants::Page::Count)
     render 'show_follow'
   end
 
   def followers
     @user = User.find(params[:id])
-    @users = @user.followers.page(params[:page]).per(Constants::FollowConut::PAGE)
+    @users = @user.followers.page(params[:page]).per(Constants::Page::Count)
     render 'show_follow'
   end
 
