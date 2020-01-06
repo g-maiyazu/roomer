@@ -5,9 +5,11 @@ class Profile < ApplicationRecord
                                   allow_blank: true
   validates :introduction,        length: { maximum: 140 },
                                   allow_blank: true
-  validates :address,             length: { maximum: 100 },
+  validates :address,             length: { maximum: 70 },
                                   allow_blank: true
-  validates :address,             length: { maximum: 150 },
+  validates :floor_width,         length: { maximum: 30 },
+                                  allow_blank: true
+  validates :web_site,            length: { maximum: 50 },
                                   allow_blank: true
   # 性別の種別管理
   enum gender: { man: 1, woman: 2, not_answer_gender: 3 }
