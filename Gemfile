@@ -44,6 +44,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rails'
   gem 'letter_opener_web'
+  gem "shoulda-matchers"
 end
 
 group :development do
