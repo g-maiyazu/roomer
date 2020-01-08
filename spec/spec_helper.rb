@@ -94,8 +94,4 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
   end
-
-  # mailer
-  config.include(EmailSpec::Helpers)
-  config.include(EmailSpec::Matchers)
 end
