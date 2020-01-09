@@ -14,7 +14,7 @@
 
       <!-- ログイン後メニュー -->
       <% if user_signed_in? %>
-        <%= link_to image_tag('post.png', size: "40x40", class: "header-post"), notifications_path %>
+        <%= link_to image_tag('post.png', size: "40x40", class: "header-post", alt: "notification"), notifications_path %>
         <div class="dropdown">
           <button class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" alt="avatar">
             <% if !current_user.blank? %>
