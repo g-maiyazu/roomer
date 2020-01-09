@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Posts', type: :system, js: true do
-  it '新規投稿したあと、その投稿を編集して最後に削除する' do
+  it '新規投稿したあと、その投稿を編集して削除する' do
     user = FactoryBot.create(:user, user_name: 'test', email: 'test@mail.com')
     user.create_profile
 
@@ -39,8 +39,7 @@ RSpec.describe 'Posts', type: :system, js: true do
     expect(current_path).to eq post_path(post)
     expect(page).to have_content '私の部屋は白を基調にしています'
 
-    # 投稿を編集する
-    # find('button.btn.dropdown-toggle.setting-btn').click
+    # 投稿編集
     find('button#post-dropdown').click
     click_link '投稿を編集'
     expect(current_path).to eq edit_post_path(post)
@@ -53,7 +52,7 @@ RSpec.describe 'Posts', type: :system, js: true do
     expect(page).to_not have_content '私の部屋は白を基調にしています'
     expect(page).to have_content "これは私の父の部屋です"
 
-    # 投稿を削除する
+    # 投稿削除
     find('button#post-dropdown').click
     click_link '投稿を削除'
     expect(page.driver.browser.switch_to.alert.text).to eq "本当に削除しますか?"
