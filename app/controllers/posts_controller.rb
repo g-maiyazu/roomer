@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
-  before_action :correct_user, only: %i[edit update]
+  before_action :correct_user, only: %i[edit update destroy]
 
   def show
     @post = Post.find_by(id: params[:id])
