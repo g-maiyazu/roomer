@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Comments', type: :system do
-  it '既存の投稿にコメントをして、削除する', js: true do
+  it '既存の投稿にコメントをして、削除する' do
     post = FactoryBot.create(:post, caption: 'これが私の部屋です')
     user = FactoryBot.create(:user, user_name: 'test', email: 'test@mail.com')
     user.create_profile

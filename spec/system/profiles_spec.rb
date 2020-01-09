@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Posts', type: :system, js: true do
+RSpec.describe 'Posts', type: :system do
   it 'プロフィールを編集する' do
     user = FactoryBot.create(:user, user_name: 'test', email: 'test@mail.com')
     user.create_profile
