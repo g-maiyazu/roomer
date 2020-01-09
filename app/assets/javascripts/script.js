@@ -8,7 +8,7 @@ $(function (){
   if (count > 140) {
     $(".js-text-count").css("color","red");
   }
-  $(".js-text-count").text( "残り" + now_count + "文字");
+  $(".js-text-count").text( "あと" + now_count + "文字");
 
   // キーボード押下時
   $(".js-text").on("keyup", function() {
@@ -21,7 +21,7 @@ $(function (){
     } else {
       $(".js-text-count").css("color","black");
     }
-    $(".js-text-count").text( "残り" + now_count + "文字");
+    $(".js-text-count").text( "あと" + now_count + "文字");
   });
 });
 
