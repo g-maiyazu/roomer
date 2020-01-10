@@ -181,19 +181,19 @@ ul, ol {
 }
 .searchfield {
   height: 3.2rem;
-  width: 90%;
+  width: 100%;
   -moz-border-radius: 0.8rem;
   -webkit-border-radius: 0.8rem;
   border-radius: 0.8rem;
   border: solid 0.1rem #eae7e2;
   background-color: #fbfbfb;
-  padding: 0 0 0 1rem;
+  padding: 0 0 0 3rem;
   font-size: 1.4rem;
   box-sizing: border-box;
 }
 button.searchbtn {
   position: absolute;
-  left: 730px;
+  padding-left: 1rem;
   padding-top: 6px;
 }
 .btn-flat-border-registrer {
@@ -786,7 +786,7 @@ h1.title.mb-4.text-center {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   height: 230px;
-  @include md { & { height: 200px; } }
+  @include md { & { height: 230px; } }
   padding: 13px 20px;
   overflow: hidden;
 
@@ -794,12 +794,6 @@ h1.title.mb-4.text-center {
     margin-top: 12px;
     width: 110px; height: 110px;
     @include md { & { width: 150px; height: 150px; } }
-
-    &.logged_in {
-      margin-top: 0px;
-      width: 90px; height: 90px;
-      @include md { & { width: 120px; height: 120px; } }
-    }
   }
 
   a {
