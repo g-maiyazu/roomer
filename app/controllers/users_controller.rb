@@ -2,13 +2,13 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.all.page(params[:page]).per(Constants::Page::Count).search(params[:search])
+    @users = User.all.page(params[:page]).per(Constants::Page::Count)
   end
 
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
-    @posts = @user.posts.page(params[:page]).per(Constants::Page::Count).search(params[:search])
+    @posts = @user.posts.page(params[:page]).per(Constants::Page::Count)
   end
 
   def destroy

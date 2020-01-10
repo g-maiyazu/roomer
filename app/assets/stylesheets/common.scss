@@ -179,9 +179,9 @@ ul, ol {
   min-width: 31.9rem;
   padding-top: 6px;
 }
-input[type="search"] {
+.searchfield {
   height: 3.2rem;
-  width: 100%;
+  width: 90%;
   -moz-border-radius: 0.8rem;
   -webkit-border-radius: 0.8rem;
   border-radius: 0.8rem;
@@ -190,6 +190,11 @@ input[type="search"] {
   padding: 0 0 0 1rem;
   font-size: 1.4rem;
   box-sizing: border-box;
+}
+button.searchbtn {
+  position: absolute;
+  left: 730px;
+  padding-top: 6px;
 }
 .btn-flat-border-registrer {
   display: inline-block;

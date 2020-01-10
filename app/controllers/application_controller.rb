@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
+  before_action :set_search
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
+
+  def set_search
+    @search_user = User.ransack(params[:q])
+    @search_users = @search_user.result.page(params[:page]).per(Constants::Page::Count)
+  end
 
   protected
 
