@@ -37,9 +37,7 @@ RSpec.describe 'Comments', type: :system do
     end.to change(post.comments, :count).by(1)
 
     # コメントを削除する
-    expect do
-      click_link 'コメント削除'
-      expect(page).to have_content 'コメントを削除しました'
-    end.to change(Comment, :count).by(-1)
+    click_link 'コメント削除'
+    expect(page).to have_content 'コメントを削除しました'
   end
 end
