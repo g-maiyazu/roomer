@@ -53,6 +53,9 @@ Lint/UselessAssignment:
 Lint/ShadowingOuterLocalVariable:
   Enabled: false
 
+Rails/FilePath:
+  Enabled: false
+
 Rails/LexicallyScopedActionFilter:
   Enabled: false
 

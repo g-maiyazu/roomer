@@ -50,12 +50,12 @@ RSpec.describe 'Posts', type: :system, js: true do
 
     expect(current_path).to eq post_path(post)
     expect(page).to_not have_content '私の部屋は白を基調にしています'
-    expect(page).to have_content "これは私の父の部屋です"
+    expect(page).to have_content 'これは私の父の部屋です'
 
     # 投稿削除
     find('button#post-dropdown').click
     click_link '投稿を削除'
-    expect(page.driver.browser.switch_to.alert.text).to eq "本当に削除しますか?"
+    expect(page.driver.browser.switch_to.alert.text).to eq '本当に削除しますか?'
     page.driver.browser.switch_to.alert.accept
 
     expect(current_path).to eq user_path(user)

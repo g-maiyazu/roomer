@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "posts", type: :request do
+RSpec.describe 'posts', type: :request do
   describe '#new' do
     context '未ログイン状態のとき' do
       it 'リダイレクトされること' do
