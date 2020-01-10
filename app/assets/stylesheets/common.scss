@@ -1067,13 +1067,10 @@ select {
 }
 
  /* notification */
- .users-index {
-  text-align: -webkit-center;
-}
 .user-view.clearfix {
   border-bottom: 1px solid #dee2e6;
   padding-top: 10px;
-  width: fit-content;
+  width: 50%;
 }
 .notification-time {
   padding: 2% 16.5%;

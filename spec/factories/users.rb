@@ -1,13 +1,16 @@
 FactoryBot.define do
-  factory :user, aliases: [:owner] do
+  factory :user do
     sequence(:user_name) { |n| "tester#{n}" }
     sequence(:email)     { |n| "tester#{n}@example.com" }
     password             { 'password' }
-  end
+    confirmed_at         { Time.zone.today }
 
-  trait :invalid do
-    user_name { '' }
-    email     { 'tester@invalid' }
-    password  { 'test' }
+    trait :admin do
+      user_name    { 'admin' }
+      email        { 'admin@example.com' }
+      password     { 'password' }
+      admin        { true }
+      confirmed_at { Time.zone.today }
+    end
   end
 end

@@ -127,6 +127,10 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
+    email_spec (2.2.0)
+      htmlentities (~> 4.3.3)
+      launchy (~> 2.1)
+      mail (~> 2.7)
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
     erubi (1.9.0)
@@ -177,6 +181,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    htmlentities (4.3.4)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.10.0)
@@ -348,6 +353,8 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     shellany (0.0.1)
+    shoulda-matchers (4.1.2)
+      activesupport (>= 4.2.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -402,6 +409,7 @@ DEPENDENCIES
   devise-i18n-views
   devise_token_auth
   dotenv-rails
+  email_spec
   enum_help
   factory_bot_rails
   faker
@@ -429,6 +437,7 @@ DEPENDENCIES
   rubocop-rails
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

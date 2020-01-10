@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
-  before_action :correct_user, only: %i[edit update]
+  before_action :correct_user, only: %i[edit update destroy]
 
   def show
     @post = Post.find_by(id: params[:id])
-    @post_likes = @post.liked_users.page(params[:page]).per(Constants::UserConut::PAGE)
-    @comments = @post.comments.page(params[:page]).per(10)
+    @post_likes = @post.liked_users.page(params[:page]).per(Constants::Page::Count)
+    @comments = @post.comments.page(params[:page]).per(Constants::Page::Count)
     @comment = @post.comments.build
   end
 

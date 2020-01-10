@@ -94,4 +94,25 @@ RSpec.describe User, type: :model do
       expect(@user).to be_valid
     end
   end
+
+  describe 'フォーマットの検証' do
+    it 'メールアドレスが正当なフォーマットなら有効であること' do
+      valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org
+                           first.last@foo.jp alice+bob@baz.cn]
+      valid_addresses.each do |valid_address|
+        @user.email = valid_address
+        expect(@user).to be_valid
+      end
+    end
+
+    it 'メールアドレスが不正なフォーマットなら無効であること' do
+      invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
+                             foo@bar_baz.com foo@bar+baz.com]
+      invalid_addresses.each do |invalid_address|
+        @user.email = invalid_address
+        @user.valid?
+        expect(@user.errors).to be_added(:email, :invalid, value: invalid_address)
+      end
+    end
+  end
 end
