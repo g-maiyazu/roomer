@@ -26,7 +26,8 @@
         <% end %>
       </div>
       <div class="user-delete-link">
-        <%= link_to registration_path(@user), class: "btn-square", method: :delete, data: { confirm: "本当に退会してよろしいですか？" } do %>
+        <%= link_to registration_path(@user), class: "btn-square", method: :delete, data:
+          { confirm: "本当に退会してよろしいですか？", cancel: 'キャンセル', commit: '退会する'}, title: '削除確認' do %>
           <i class="fas fa-user-slash"></i> 退会申請
         <% end %>
       </div>
