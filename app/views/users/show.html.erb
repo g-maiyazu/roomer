@@ -10,118 +10,14 @@
 
 <div id="main">
   <div class="left">
-
     <!-- user_info -->
     <section class="user_info">
-      <table>
-        <tr class="separate">
-          <th>
-            <div class="d-none d-md-block pr-5">
-            <% if @user.avatar?%>
-              <%= image_tag(@user.avatar.url, size: "80x80", class: "rounded-circle z-depth-0", alt: "avatar image") %>
-            <% else %>
-              <%= image_tag("no_user.png", size: "80x80", class: "rounded-circle z-depth-0", alt: "avatar image") %>
-            <% end %>
-            </div>
-          </th>
-          <td class = "user-name">
-            <% if @user.user_name.blank? %>
-              <%= '-' %>
-            <% else %>
-              <%= @user.user_name %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>年齢</th>
-          <td>
-            <% if @profile.age.blank? %>
-              <%= '-' %>
-            <% else %>
-              <%= @profile.age %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>性別</th>
-          <td>
-            <% if @profile.gender_i18n.blank? %>
-              <%= '-' %>
-            <% else %>
-              <%= @profile.gender_i18n %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>仕事</th>
-          <td>
-            <% if @profile.job_i18n.blank? %>
-              <%= '-' %>
-            <% else %>
-              <%= @profile.job_i18n %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>居住形態</th>
-          <td>
-            <% if @profile.living_style_i18n.blank? %>
-              <%= '-' %>
-            <% else %>
-              <%= @profile.living_style_i18n %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>間取り</th>
-          <td>
-            <% if @profile.floor_plan_i18n.blank? %>
-              <%= '-' %>
-            <% else %>
-              <%= @profile.floor_plan_i18n %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>広さ</th>
-          <td>
-            <% if @profile.floor_width.blank? %>
-              <%= '-' %>
-            <% else %>
-              <%= @profile.floor_width %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>ウェブサイト</th>
-          <td>
-            <% if @profile.web_site.blank? %>
-              <%= '-' %>
-            <% else %>
-              <%= @profile.web_site %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>自己紹介</th>
-          <td class = "introduction">
-            <% if @profile.introduction.blank? %>
-              <div class="introduction-none">
-                <%= '-' %>
-              </div>
-            <% else %>
-              <%= @profile.introduction %>
-            <% end %>
-          </td>
-        </tr>
-      </table><br />
+      <%= render partial:  'user_info_table', :locals => {:profile => @profile, :user => @user} %>
     </section>
-
     <!-- stats -->
     <section class="stats">
       <%= render 'stats' %>
     </section>
-
     <section class ="prfile-edit">
     <% if user_signed_in? && current_user.id == @user.id %>
       <div class="edit-profile-link">
@@ -143,7 +39,6 @@
     <% end %>
     </section>
   </div>
-
   <!-- feed -->
   <div class="right">
     <div id = "profile-photos">
