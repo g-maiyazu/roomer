@@ -1,0 +1,23 @@
+<% provide(:title, 'みんなの写真') %>
+
+<div class="page-header d-flex align-items-center mx-auto mb-4">みんなの写真</div>
+
+<div class="feed-contents">
+  <div class="tab-pane">
+    <% if @search_posts.any? %>
+      <div class="home-post-cards row">
+        <% @search_posts.each do |post| %>
+          <div class="post-card col-6 col-sm-4">
+            <div class="post-card-img">
+              <%= link_to image_tag(post.image.url, class: "img-fluid-home", alt: "post image"), post_path(post) %>
+            </div>
+          </div>
+        <% end %>
+    <% else %>
+      <p>検索結果は0件です</p>
+    <% end %>
+  </div>
+  <div class="following-posts-footer">
+    <%= paginate @search_posts %>
+  </div>
+</div>

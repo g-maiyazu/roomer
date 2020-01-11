@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[show]
   before_action :correct_user, only: %i[edit update destroy]
 
+  def index
+    @posts = Post.all.page(params[:page]).per(Constants::Page::Count)
+  end
+
   def show
     @post = Post.find_by(id: params[:id])
     @post_likes = @post.liked_users.page(params[:page]).per(Constants::Page::Count)

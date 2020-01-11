@@ -47,14 +47,6 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def self.search(search)
-    if search
-      where(['user_name LIKE ?', "%#{search}%"])
-    else
-      all
-    end
-  end
-
   def feed
     following_ids = "SELECT followed_id FROM relationships
                      WHERE follower_id = :user_id"

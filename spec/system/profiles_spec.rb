@@ -15,9 +15,14 @@ RSpec.describe 'Profiles', type: :system do
     fill_in 'メールアドレス', with: 'test@mail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログインする'
-    expect(page).to have_content 'testの部屋'
+    expect(page).to have_content 'あなたのフィード'
 
     # プロフィールを編集する
+    click_button 'avatar'
+    click_link 'マイルーム'
+    expect(current_path).to eq user_path(user)
+    expect(page).to have_content 'testの部屋'
+
     click_link 'プロフィール編集'
     expect(current_path).to eq edit_profile_path(user)
     expect(page).to have_content '公開情報'

@@ -16,7 +16,7 @@ RSpec.describe 'Comments', type: :system do
     fill_in 'メールアドレス', with: 'test@mail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログインする'
-    expect(page).to have_content 'testの部屋'
+    expect(page).to have_content 'あなたのフィード'
 
     # ページ遷移
     visit post_path(post)

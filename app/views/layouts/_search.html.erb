@@ -1,7 +1,13 @@
 <div class="inline-block">
-  <%= form_tag(yield(:path), method: :get) do %>
-    <%= hidden_field_tag :display_number, params[:display_number] %>
-    <%= search_field_tag :search, params[:search], placeholder: "キーワード検索...", class: "searchfield" %>
-    </span>
-  <% end %>
+  <% if controller.controller_name == "users" and controller.action_name == "index" %>
+    <%= search_form_for @search_user, url: users_path do |f| %>
+      <button type="submit" class="searchbtn" id="searchbtn"><i class="fa fa-search" aria-hidden="true"></i></button>
+      <%= f.text_field :user_name_cont ,placeholder: 'ユーザーを検索...', class: "searchfield" %>
+    <% end %>
+  <% else %>
+    <%= search_form_for @search_post, url: posts_path do |f| %>
+      <button type="submit" class="searchbtn" id="searchbtn"><i class="fa fa-search" aria-hidden="true"></i></button>
+      <%= f.text_field :caption_cont ,placeholder: 'キーワードを検索...', class: "searchfield" %>
+    <% end %>
+  <% end %>  
 </div>

@@ -33,6 +33,7 @@ gem 'kaminari'
 gem 'bootstrap-sass', '3.3.7'
 gem 'enum_help'
 gem 'data-confirm-modal'
+gem 'ransack'
 
 group :development, :test do
   gem 'factory_bot_rails'

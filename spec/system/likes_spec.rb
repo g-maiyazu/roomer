@@ -16,7 +16,7 @@ RSpec.describe 'Likes', type: :system do
     fill_in 'メールアドレス', with: 'foobar@mail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログインする'
-    expect(page).to have_content 'foobarの部屋'
+    expect(page).to have_content 'あなたのフィード'
 
     # 投稿にいいねをする
     visit post_path(post)

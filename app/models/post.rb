@@ -11,15 +11,6 @@ class Post < ApplicationRecord
   validates :caption, length: { maximum: 140 }
   validates :user_id, presence: true
 
-  # 検索メソッド
-  def self.search(search)
-    if search
-      where(['caption LIKE ?', "%#{search}%"])
-    else
-      all
-    end
-  end
-
   def like(user)
     likes.create(user_id: user.id)
   end
