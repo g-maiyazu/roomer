@@ -17,7 +17,7 @@ RSpec.describe 'Relationships', type: :system do
     fill_in 'メールアドレス', with: 'foo@mail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログインする'
-    expect(page).to have_content 'fooの部屋'
+    expect(page).to have_content 'あなたのフィード'
 
     # フォローするユーザーのプロフィールページに遷移
     visit user_path(bar)

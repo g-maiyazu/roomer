@@ -20,7 +20,7 @@ RSpec.describe 'Search', type: :system do
     fill_in 'メールアドレス', with: 'foo@mail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログインする'
-    expect(page).to have_content 'fooの部屋'
+    expect(page).to have_content 'あなたのフィード'
 
     # 投稿を検索
     fill_in 'キーワードを検索...', with: 'インテリア'

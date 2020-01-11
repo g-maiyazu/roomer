@@ -19,7 +19,7 @@ RSpec.describe 'Notifications', type: :system do
     fill_in 'メールアドレス', with: 'foo@mail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログインする'
-    expect(page).to have_content 'fooの部屋'
+    expect(page).to have_content 'あなたのフィード'
 
     visit user_path(bar)
     expect(page).to have_content 'barの部屋'
@@ -53,7 +53,7 @@ RSpec.describe 'Notifications', type: :system do
     fill_in 'メールアドレス', with: 'bar@mail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログインする'
-    expect(page).to have_content 'barの部屋'
+    expect(page).to have_content 'あなたのフィード'
 
     click_link 'notification'
     expect(current_path).to eq notifications_path

@@ -15,7 +15,7 @@ RSpec.describe 'Posts', type: :system, js: true do
     fill_in 'メールアドレス', with: 'test@mail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログインする'
-    expect(page).to have_content 'testの部屋'
+    expect(page).to have_content 'あなたのフィード'
 
     # 新規投稿
     click_button 'avatar'
