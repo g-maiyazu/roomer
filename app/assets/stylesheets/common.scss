@@ -829,7 +829,6 @@ h1.title.mb-4.text-center {
   padding: 1rem 1rem 1rem;
   overflow: auto;
   background-size: contain;
-  /* background-color: #f6f5f4; */
   position: relative;
 }
 .img-fluid-profile{
@@ -878,11 +877,6 @@ td.user-name {
   background-color: white;
   padding-left: 15px;
 }
-/*
-table tr:nth-child(odd){
-  background-color: #eee
-}
-*/
 .user_info {
   padding-bottom: 1rem;
 }
@@ -918,7 +912,6 @@ select {
 }
 
 /* post */
-
 .post-form {
   background-color: rgba(0, 0, 0, 0.1);
   margin: 0 auto 1rem auto;
@@ -1001,7 +994,6 @@ select {
 }
 
 /* post show */
-
 .post-container {
   margin: 0 -15px;
 }
@@ -1011,7 +1003,7 @@ select {
   }
 }
 .like-form {
-  padding: 5px 0 5px 0;
+  padding: 5px 0 5px 490px;
 }
 #post-dropdown {
 
@@ -1044,8 +1036,11 @@ select {
   padding-top: 30px;
   padding-bottom: 20px;
 }
-
- /* notification */
+button#post-dropdown {
+  padding-left: 680px;
+  font-size: large;
+}
+/* notification */
 .user-view.clearfix {
   border-bottom: 1px solid #dee2e6;
   padding-top: 10px;

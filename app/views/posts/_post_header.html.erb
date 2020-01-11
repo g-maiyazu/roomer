@@ -15,7 +15,7 @@
       <div class="dropdown mr-1">
         <button type="button" class="btn-post dropdown-toggle setting-btn py-0 px-1", data-toggle="dropdown", data-offset="0,10", id="post-dropdown",
                           aria-haspopup="true", aria-expanded="false", style="box-shadow: none" ><i class="fas fa-ellipsis-h"></i></button>
-        <div class="dropdown-menu dropdown-menu-left">
+        <div class="dropdown-menu dropdown-menu-right">
 
           <div class="dropdown-divider"></div>
           <a href="https://twitter.com/share?url=<%= post_url(object) %>" target="_blank" rel="nofollow" class="dropdown-item opensub d-flex align-items-center">
@@ -38,7 +38,7 @@
       <div class="dropdown mr-1">
         <button type="button" class="btn-post dropdown-toggle setting-btn", data-toggle="dropdown", data-offset="0,10",
                           aria-haspopup="true", aria-expanded="false", style="box-shadow: none" ><i class="fas fa-ellipsis-h"></i></button>
-        <div class="dropdown-menu dropdown-menu-left">
+        <div class="dropdown-menu dropdown-menu-right">
           <%= link_to post_path(object),  class: "dropdown-item d-flex align-items-center", method: :delete, data: {confirm: "本当に削除しますか?", cancel: "キャンセル", commit: "削除"} do %>
             <div style="width: 100%">投稿を削除</div><i class="fas fa-trash-alt"></i>
           <% end %>
