@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user_search
   before_action :admin_user,     only: :destroy
 
   def index
@@ -27,6 +28,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers.page(params[:page]).per(Constants::Page::Count)
     render 'show_follow'
+  end
+
+  def set_user_search
+    @search_user = User.ransack(params[:q])
+    @search_users = @search_user.result.page(params[:page]).per(Constants::Page::Count)
   end
 
   private
