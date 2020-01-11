@@ -1,0 +1,20 @@
+<% provide(:title, 'みんなの投稿') %>
+
+<div class="feed-contents">
+  <div class="tab-pane">
+    <% if @posts.any? %>
+      <div class="home-post-cards row">
+        <% @posts.each do |post| %>
+          <div class="post-card col-6 col-sm-4">
+            <div class="post-card-img">
+              <%= link_to image_tag(post.image.url, class: "img-fluid-home", alt: "post image"), post_path(post) %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="following-posts-footer">
+      <%= paginate @posts %>
+    </div>
+  </div>
+</div>

@@ -32,10 +32,13 @@
             </li>
             <li role="presentation">
               <%= link_to "投稿する", new_post_path %>
-            </li> 
+            </li>
             <li role="presentation">
               <%= link_to "すべてのユーザー", users_path %>
-            </li>            
+            </li>
+            <li role="presentation">
+              <%= link_to "すべての投稿", posts_path %>
+            </li>
             <li role="presentation" class="divider"></li>
             <li role="presentation">
               <%= link_to "ログアウト", logout_path, method: :delete %>
