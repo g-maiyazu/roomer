@@ -1,4 +1,4 @@
-# ユーザ
+# ユーザ(かんたんログインで使用)
 user = User.create!(user_name: 'test0',
                     email: 'test0@mail.com',
                     password: 'password',
