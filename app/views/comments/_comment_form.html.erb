@@ -1,6 +1,7 @@
 <%= form_for([post, comment]) do |f| %>
   <div class="field form-group">
-    <%= f.text_area :content, size: "40x2", placeholder: "公開コメントを入力..." %>
+    <%= f.text_area :content, size: "40x2", class: 'form-control js-text', placeholder: "公開コメントを入力..." %><br />
+    <p class="js-text-count pull-left"></p><br />
   </div>
   <%= f.submit "送信", class: "btn comment" %>
 <% end %>
