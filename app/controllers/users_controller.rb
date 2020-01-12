@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user_search
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user, only: :destroy
 
   def index
     @users = User.all.page(params[:page]).per(Constants::Page::Count)
