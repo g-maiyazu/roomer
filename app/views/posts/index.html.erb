@@ -13,11 +13,12 @@
             </div>
           </div>
         <% end %>
+      </div>
     <% else %>
       <p>検索結果は0件です</p>
     <% end %>
-  </div>
-  <div class="following-posts-footer">
-    <%= paginate @search_posts %>
+    <div class="following-posts-footer">
+      <%= paginate @search_posts %>
+    </div>
   </div>
 </div>

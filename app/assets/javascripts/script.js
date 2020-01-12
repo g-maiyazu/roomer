@@ -1,3 +1,8 @@
+// ドロップダウン
+$(document).ready(function(){
+  $('.dropdown-toggle').dropdown();
+});
+
 // 文字カウント
 $(function (){
   // ページ読み込み時
