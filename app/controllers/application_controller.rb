@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
 
   def set_post_search
     @search_post = Post.ransack(params[:q])
-    @search_posts = @search_post.result.page(params[:page]).per(Constants::Page::Count)
+    @search_posts = if @tag_name = params[:tag_name]
+                      Post.tag_search(params[:tag_name]).page(params[:page]).per(Constants::Page::Count)
+                    #elsif params[:q]
+                    #  @search_post.result.order('created_at DESC').page(params[:page]).per(Constants::Page::Count)
+                    else
+                      @search_post.result.page(params[:page]).per(Constants::Page::Count)
+                    end
   end
 
   protected

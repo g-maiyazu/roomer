@@ -7,7 +7,7 @@
   <% else %>
     <%= search_form_for @search_post, url: posts_path do |f| %>
       <button type="submit" class="searchbtn" id="searchbtn"><i class="fa fa-search" aria-hidden="true"></i></button>
-      <%= f.text_field :caption_cont ,placeholder: 'キーワードを検索...', class: "searchfield" %>
+      <%= f.text_field :caption_cont, placeholder: 'キーワードを検索...', class: "searchfield" %>
     <% end %>
   <% end %>  
 </div>

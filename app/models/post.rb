@@ -42,4 +42,8 @@ class Post < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  def self.tag_search(tag_name)
+    tagged_with(tag_name.to_s)
+  end
 end

@@ -53,9 +53,11 @@ users = User.order(:created_at).take(15)
 0.upto(5) do |n|
   image = open("#{Rails.root}/db/fixtures/room1.png")
   caption = 'これが私の部屋です。ポスターがお気に入りです。'
+  tag_list = Faker::Lorem.words(3).join(",")
   users[0].posts.create!(
     image: image,
     caption: caption,
+    tag_list: tag_list,
     created_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now)
     )
 end

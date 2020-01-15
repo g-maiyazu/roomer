@@ -17,6 +17,16 @@
   <div class="col">
     <%= render 'posts/post_body', object: @post %>
   </div>
+
+  <div class="post-tags">
+    <h5>タグ一覧</h5>
+    <div class="post-tags__con">
+      <% @post.tag_list.each do |tag| %>
+        <%= link_to tag,posts_path(tag_name: tag), class: "post-tags__link" %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="col comment-form">
     <%= render partial: 'comments/comment_form', :locals => {:comment => @comment, :post => @post} %>
   </div>
