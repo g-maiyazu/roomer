@@ -34,6 +34,7 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'enum_help'
 gem 'data-confirm-modal'
 gem 'ransack'
+gem 'acts-as-taggable-on', '~> 6.0'
 
 group :development, :test do
   gem 'factory_bot_rails'

@@ -19,7 +19,7 @@
 
     <%= f.text_area :caption, class: "caption", placeholder: "キャプションを入力..." %>
 
-
+    <%= f.text_field :tag_list, class: "tag_list", value: @post.tag_list.join(','), placeholder: "タグ入力（カンマ区切り）" %>
   </div>
 
   <div class="post-form-btns text-right mb-4">

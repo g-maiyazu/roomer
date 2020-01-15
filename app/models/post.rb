@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  acts_as_taggable
   default_scope -> { order(created_at: :desc) }
   mount_uploader :image, ImageUploader
 
@@ -40,5 +41,9 @@ class Post < ApplicationRecord
       notification.checked = true if notification.visitor_id == notification.visited_id
       notification.save if notification.valid?
     end
+  end
+
+  def self.tag_search(tag_name)
+    tagged_with(tag_name.to_s)
   end
 end
