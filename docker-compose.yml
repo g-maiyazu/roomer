@@ -6,8 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000" #rails
-      - "3035:3035" #webpack
+      - "3000:3000"
     tty: true
     stdin_open: true
     command: foreman start
@@ -29,3 +28,18 @@ services:
       MYSQL_USERNAME: root
     ports:
     - 4306:3306
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - 80:80
+    depends_on:
+      - web
+    volumes:
+      - public-data:/roomer/public
+      - tmp-data:/roomer/tmp
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  mysql_data:
