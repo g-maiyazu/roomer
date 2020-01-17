@@ -15,6 +15,9 @@ services:
       DATABASE_URL: mysql2://root:password@mysql:3306
     volumes:
       - .:/app_name
+      - public-data:/roomer/public
+      - tmp-data:/roomer/tmp
+      - log-data:/roomer/log
     depends_on:
       - mysql
   mysql:
