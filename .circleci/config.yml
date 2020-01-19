@@ -1,0 +1,73 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+        environment:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+
+    working_directory: ~/myapp
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "Gemfile.lock" }}
+            - v2-dependencies- 
+      - run:
+          name: Install Bundle
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: DB Start-up
+          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
+      - run: bundle exec rake db:create
+      - run: bundle exec rake db:schema:load
+      - run: gem install bundler
+
+      - run:
+          name: Run Rubocop
+          command: bundle exec rubocop
+
+      - run:
+          name: Run Rspec
+          command: bundle exec rspec
+
+  deploy:
+    docker:
+      - image: circleci/python
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: "Install AWS"
+          command: |
+            sudo pip install awscli
+            aws --version
+      - run:
+          name: "Install jq"
+          command: sudo apt-get install -y jq
+      - run:
+          name: "Log in to AWS ECR"
+          command: $(aws ecr get-login --no-include-email --region ap-northeast-1)
+      - run:
+          name: "Build Docker Image"
+          command: |
+            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/roomer-ecr:$CIRCLE_SHA1 .
+      - run:
+          name: "Push Docker Image"
+          command: |
+            docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/roomer-ecr:$CIRCLE_SHA1
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
