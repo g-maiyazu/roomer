@@ -9,7 +9,7 @@ jobs:
           DB_HOST: 127.0.0.1
           MYSQL_USERNAME: root
           MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: myapp_test
+          MYSQL_DATABASE: app_name_test
 
     working_directory: ~/myapp
 
