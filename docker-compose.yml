@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3000:3000" #rails
     tty: true
     stdin_open: true
     command: foreman start
@@ -30,7 +30,7 @@ services:
       MYSQL_DATABASE: myapp_development
       MYSQL_USERNAME: root
     ports:
-    - 4306:3306
+    - "4306:3306"
   nginx:
     build:
       context: ./nginx

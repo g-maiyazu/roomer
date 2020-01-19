@@ -6,6 +6,14 @@ RUN mkdir /app_name
 ENV APP_ROOT /app_name 
 WORKDIR $APP_ROOT
 
+# chromedriver
+RUN apk add --update \
+            udev \
+            ttf-freefont \
+            chromium \ 
+            chromium-chromedriver
+
+# 各種ファイルの設定
 RUN apk add git --no-cache && \
     apk add --update bash perl --no-cache && \
     apk add libxslt-dev libxml2-dev build-base --no-cache && \
