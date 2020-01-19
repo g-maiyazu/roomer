@@ -6,6 +6,9 @@ jobs:
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
+          MYSQL_USERNAME: root
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: myapp_test
 
     working_directory: ~/myapp
 
@@ -25,7 +28,7 @@ jobs:
           key: v2-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: DB Start-up
-          command: dockerize -wait tcp://127.0.0.1:5432 -timeout 1m
+          command: dockerize -wait tcp://127.0.0.1:4306 -timeout 1m
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run: gem install bundler
