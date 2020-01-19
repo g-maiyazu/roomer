@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.6.3-node-browsers
         environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
           MYSQL_USERNAME: root
@@ -26,9 +27,9 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v2-dependencies-{{ checksum "Gemfile.lock" }}
-      - run:
-          name: DB Start-up
-          command: dockerize -wait tcp://127.0.0.1:4306 -timeout 1m
+
+      - run: mv config/database.yml.ci config/database.yml
+
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run: gem install bundler
