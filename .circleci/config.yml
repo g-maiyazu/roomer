@@ -2,7 +2,7 @@ version: 2
 jobs:
   test:
     docker:
-      - image: circleci/ruby:2.6.3-node-browsers
+      - image: circleci/ruby:2.6.3-node-browsers-legacy
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           RAILS_ENV: test
