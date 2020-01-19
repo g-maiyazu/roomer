@@ -30,7 +30,7 @@ services:
       MYSQL_DATABASE: myapp_development
       MYSQL_USERNAME: root
     ports:
-    - 4306:3306
+    - "4306:3306"
   nginx:
     build:
       context: ./nginx

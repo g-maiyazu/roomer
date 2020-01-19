@@ -1,15 +1,20 @@
 version: 2
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/ruby:2.6.3-node-browsers-legacy
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
+      - image: circleci/mysql:8.0.18
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          MYSQL_HOST: 127.0.0.1
           MYSQL_USERNAME: root
           MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: app_name_test
+          MYSQL_DATABASE: myapp_test
 
     working_directory: ~/myapp
 
@@ -22,21 +27,22 @@ jobs:
       - run:
           name: Install Bundle
           command: |
+            gem install bundler -v 1.17.3
             bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           paths:
             - ./vendor/bundle
           key: v2-dependencies-{{ checksum "Gemfile.lock" }}
 
+      - run:
+          name: Run Rubocop
+          command: bundle exec rubocop
+
       - run: mv config/database.yml.ci config/database.yml
 
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run: gem install bundler
-
-      - run:
-          name: Run Rubocop
-          command: bundle exec rubocop
 
       - run:
           name: Run Rspec
