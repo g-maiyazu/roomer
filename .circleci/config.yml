@@ -73,6 +73,18 @@ jobs:
           name: "Push Docker Image"
           command: |
             docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/roomer-ecr:$CIRCLE_SHA1
+      - run:
+          name: "DB Migrate"
+          command: |
+            aws ecs run-task --region ap-northeast-1 --cluster p-claster --task-definition roomer-task --overrides file://ecs/run_task_db_migrate.json
+      - run:
+          name: "Update Task"
+          command: |
+            aws ecs register-task-definition --family roomer-task --cli-input-json --region ap-northeast-1 "$(aws ecs describe-task-definition --task-definition roomer-task --region ap-northeast-1 | jq '.taskDefinition | { containerDefinitions: .containerDefinitions }')"
+      - run:
+          name: "Update Service"
+          command: |
+            aws ecs update-service --cluster p-claster --service p-service --task-definition roomer-task --region ap-northeast-1
 workflows:
   version: 2
   test_and_deploy:
