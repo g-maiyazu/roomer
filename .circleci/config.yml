@@ -76,11 +76,7 @@ jobs:
       - run:
           name: "DB Migrate"
           command: |
-<<<<<<< HEAD
             aws ecs run-task --region ap-northeast-1 --cluster roomer-cluster --task-definition roomer-task --overrides file://ecs/run_task_db_migrate.json
-=======
-            aws ecs run-task --region ap-northeast-1 --cluster p-claster --task-definition roomer-task --overrides file://ecs/run_task_db_migrate.json
->>>>>>> origin/develop
       - run:
           name: "Update Task"
           command: |
@@ -89,6 +85,7 @@ jobs:
           name: "Update Service"
           command: |
             aws ecs update-service --cluster roomer-cluster --service Roomer-service --task-definition roomer-task --region ap-northeast-1
+
 workflows:
   version: 2
   test_and_deploy:
