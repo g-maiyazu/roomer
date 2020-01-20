@@ -10,4 +10,6 @@ if Rails.env.production?
     }
     config.fog_directory     =  ENV['AWS_S3_BUCKET']
   end
+
+  CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 end
