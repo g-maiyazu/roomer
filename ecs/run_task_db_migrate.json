@@ -1,0 +1,8 @@
+{
+  "containerOverrides": [
+    {
+      "name": "roomer-ecr",
+      "command": ["bundle", "exec", "rails", "db:migrate"]
+    }
+  ]
+}
