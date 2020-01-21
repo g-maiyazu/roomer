@@ -29,7 +29,6 @@ RSpec.describe 'Posts', type: :system, js: true do
     end.to change(Post, :count).by(1)
 
     expect(current_path).to eq user_path(user)
-    expect(page).to have_content '投稿されました'
 
     post = Post.first
     expect(post.caption).to eq '私の部屋は白を基調にしています'

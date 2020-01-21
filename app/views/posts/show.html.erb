@@ -2,9 +2,7 @@
 
 <!-- error -->
 <div class="error_explanation">
-  <% if notice %>
-    <p class="alert alert-notice"><%= notice %></p>
-  <% elsif alert %>
+  <% if alert %>
     <p class="alert alert-notice"><%= alert %></p>
   <% end %>
 </div>
@@ -27,9 +25,12 @@
     </div>
   </div>
 
-  <div class="col comment-form">
-    <%= render partial: 'comments/comment_form', :locals => {:comment => @comment, :post => @post} %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="col comment-form">
+      <%= render partial: 'comments/comment_form', :locals => {:comment => @comment, :post => @post} %>
+    </div>
+  <% end %>
+
   <div class="col comment-index">
     <%= render partial: 'comments/comment_index', :locals => {:comment => @comment, :post => @post} %>
   </div>

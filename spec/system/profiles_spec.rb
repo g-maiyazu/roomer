@@ -50,7 +50,6 @@ RSpec.describe 'Profiles', type: :system do
 
     expect(current_path).to eq user_path(user)
     expect(page).to have_content 'testの部屋'
-    expect(page).to have_content 'プロフィールを更新しました'
 
     expect(page).to have_content '30'
     expect(page).to have_content '男性'
