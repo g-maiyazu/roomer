@@ -1,13 +1,6 @@
 <% provide(:title, @user.user_name) %>
 <h3><%= @user.user_name %>の部屋</h3>
 
-<!-- error -->
-<div class="error_explanation">
-  <% if notice %>
-    <p class="alert alert-notice"><%= notice %></p>
-  <% end %>
-</div>
-
 <div id="main">
   <div class="left">
     <!-- user_info -->
@@ -19,31 +12,21 @@
       <%= render 'stats' %>
     </section>
     <section class ="prfile-edit">
-    <% if user_signed_in? && current_user.id == @user.id %>
-      <div class="edit-profile-link">
-        <%= link_to edit_profile_path, class: "btn-square", data: {"turbolinks" => false} do %>
-          <i class="fab fa fa-edit"></i> プロフィール編集
-        <% end %>
-      </div>
-      <div class="user-delete-link">
-        <%= link_to registration_path(@user), class: "btn-square", method: :delete, data:
-          { confirm: "本当に退会してよろしいですか？", cancel: 'キャンセル', commit: '退会する'}, title: '削除確認' do %>
-          <i class="fas fa-user-slash"></i> 退会申請
-        <% end %>
-      </div>
-    <% elsif current_user.admin?  %>
-      <div class="user-delete-link">
-        <%= link_to registration_path(@user), class: "btn-square", method: :delete, data: { confirm: "本当に退会させてもよろしいですか？" } do %>
-          <i class="fas fa-user-slash"></i> 強制退会
-        <% end %>
-      </div>
+    <% if user_signed_in? %>
+      <% if current_user.id == @user.id %>
+        <%= render 'user_menu' %>
+      <% elsif current_user.admin?  %>
+        <%= render 'admin_menu' %>
+      <% end %>
     <% end %>
     </section>
   </div>
   <!-- feed -->
   <div class="right">
     <div id = "profile-photos">
-      <%= render 'follow_form', user: @user %>
+      <% if user_signed_in? %>
+        <%= render 'follow_form', user: @user %>
+      <% end %>
       <% if @user.posts.any? %>
         <%= render 'show_latest', group: @posts %>
       <% else %>

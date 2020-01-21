@@ -33,7 +33,6 @@ RSpec.describe 'Comments', type: :system do
     expect do
       click_button '送信'
       expect(page).to have_content 'オシャレなお部屋ですね'
-      expect(page).to have_content 'コメントを投稿しました。'
     end.to change(post.comments, :count).by(1)
 
     # コメント削除
