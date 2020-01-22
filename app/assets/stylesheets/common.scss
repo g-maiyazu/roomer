@@ -274,7 +274,7 @@ img.img-fluid-home {
 .home-contents {
 
   .home-header {
-    background-image: url(image-path('top.png'));
+    background-image: image-url('top.png');
     background-size: cover;
     background-position: top center; 
     height: 430px;
