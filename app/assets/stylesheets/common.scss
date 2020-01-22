@@ -350,6 +350,8 @@ img.img-fluid-home {
       .post-card-img {
         position: relative;
         img { border-radius: 0.25rem; }
+        position: relative;
+        display: -webkit-inline-box;
 
         &::after {
           content: "";
