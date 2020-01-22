@@ -542,7 +542,6 @@ img.img-fluid-home {
 
 /* tos */
 .tos-wrapper {
-  width: 88rem;
   margin: 4rem auto 8rem;
   padding: 2em 4em 1rem;
   overflow: auto;
@@ -572,6 +571,14 @@ h1.title.mb-4.text-center {
   box-shadow: 0 0 0.6rem 0 rgba(0,0,0,.3);
   color: #431;
   text-align: center;
+  @media (min-width: 470px) { & { padding: 30px 30px 0 30px; } }
+
+
+  @include sm {
+    .about-title {
+      font-size: 2rem;
+    }
+  }
 }
 .about-container {
   padding-bottom: 25px;
