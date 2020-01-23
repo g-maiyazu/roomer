@@ -88,7 +88,7 @@ jobs:
           environment:
           command: |
             ecs-deploy -c roomer-cluster -n Roomer-service \
-              -r ap-northeast-1 -t 240 \
+              -r ap-northeast-1 -t 500 \
               -i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/roomer-ecr:$CIRCLE_SHA1
 
 workflows:
