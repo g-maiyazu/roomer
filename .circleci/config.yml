@@ -84,12 +84,13 @@ jobs:
               --task-definition roomer-task \
               --overrides file://ecs/run_task_db_migrate.json
       - run:
-          name: "Sevice deploy"
-          environment:
+          name: "Update Task"
           command: |
-            ecs-deploy -c roomer-cluster -n Roomer-service \
-              -r ap-northeast-1 -t 500 \
-              -i $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/roomer-ecr:$CIRCLE_SHA1
+              aws ecs register-task-definition --family portfolio-task --cli-input-json --region ap-northeast-1 "$(aws ecs describe-task-definition --task-definition portfolio-task --region ap-northeast-1 | sed -e "s#$AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/portforio-web:.*\",#$AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/portforio-web:$CIRCLE_SHA1\",#g" | jq '.taskDefinition | { containerDefinitions: .containerDefinitions }')"
+      - run:
+          name: "Update Service"
+          command: |
+              aws ecs update-service --cluster p-claster --service p-service --task-definition portfolio-task --region ap-northeast-1
 
 workflows:
   version: 2
