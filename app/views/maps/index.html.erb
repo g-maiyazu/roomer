@@ -1,49 +1,23 @@
 <% provide(:title, "近くのインテリアショップ検索") %>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_API_KEY'] %>&libraries=places&callback=initMap" async defer></script>
-<input id="pac-input" class="controls" type="text" placeholder="地名や店名で検索">
 
 <div id="gmap" style="height:725px; width:100%"></div>
  
 <script>
 function initMap() {
-  let marker = [];
-  let infoWindow = [];
-  let target = document.getElementById('gmap');
-  let tokyo_station = {lat: 35.681167, lng: 139.767052};
-  let map = new google.maps.Map(document.getElementById('gmap'), {
+  var target = document.getElementById('gmap');  
+  var tokyo_station = {lat: 35.681167, lng: 139.767052};
+  var map = new google.maps.Map(document.getElementById('gmap'), {
     center: tokyo_station,
     zoom: 15
   });
 
-  // 検索窓の表示
-  var input = document.getElementById('pac-input');
-  var searchBox = new google.maps.places.SearchBox(input);
-  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+  //情報ウィンドウ
+  var infowindow = new google.maps.InfoWindow();
 
-  // 検索窓のレスポンシブ化
-  map.addListener('bounds_changed', function() {
-    searchBox.setBounds(map.getBounds());
-  });
-
-  // 店鋪マーカーの作成
-  let markerData = [
-    { name: 'ニトリ マロニエゲート銀座店', lat: 35.681382, lng: 139.766084 },
-    { name: '私の部屋 丸の内店', lat: 35.684801, lng: 139.766086 },
-    { name: '無印良品 ＫＩＴＴＥ丸の内', lat: 35.6745973, lng: 139.7778069 }
-  ];
-
-  for (var i = 0; i < markerData.length; i++) {
-    markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']});
-    marker[i] = new google.maps.Marker({
-      position: markerLatLng,
-      map: map
-    });
-    infoWindow[i] = new google.maps.InfoWindow({
-      content: '<div class="content">' + markerData[i]['name'] + '</div>'
-    });
-    markerEvent(i);
-  }
+  //PlacesService
+  var service = new google.maps.places.PlacesService(map);
 
   if(!navigator.geolocation){ 
     infowindow.setPosition(map.getCenter());
@@ -51,9 +25,9 @@ function initMap() {
     infowindow.open(map);
   }
 
-  //ブラウザに対応している位置情報が入る
+  //ブラウザが対応している場合、position にユーザーの位置情報が入る
   navigator.geolocation.getCurrentPosition(function(position) { 
-    let pos = {
+    var pos = {  
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
@@ -62,30 +36,31 @@ function initMap() {
     infowindow.open(map);
     map.setCenter(pos);
 
-    let service = new google.maps.places.PlacesService(map);
+    //種類（タイプ）やキーワードをもとに施設を検索（プレイス検索）するメソッド
+    service.nearbySearch({
+      location: pos,
+      radius: 1000,
+      type: ['furniture_store']
+    }, callback);
+
+    //コールバック関数には results, status が渡されるので、status により条件分岐
     function callback(results, status) {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        for (let i = 0; i < results.length; i++) {
+        for (var i = 0; i < results.length; i++) {
           createMarker(results[i]);
         }
       }
     }
-  }, function() {  //位置情報の取得をユーザーがブロックした場合のコールバック
+  }, function() {
     infowindow.setPosition(map.getCenter());
     infowindow.setContent('位置情報の利用が許可されていません');
     infowindow.open(map);
-  });
-
-  // マーカーにクリックイベントを追加
-  function markerEvent(i) {
-    marker[i].addListener('click', function() {
-      infoWindow[i].open(map, marker[i]);
-    });
-  }
+  });   
 
   //マーカーを生成する関数（引数には検索結果の配列 results[i] が入ってきます）
   function createMarker(place) {
-    let marker = new google.maps.Marker({
+    //var placeLoc = place.geometry.location; 
+    var marker = new google.maps.Marker({
       map: map,
       position: place.geometry.location  //results[i].geometry.location
     });
@@ -97,4 +72,5 @@ function initMap() {
     });
   }
 }
+
 </script>
