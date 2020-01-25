@@ -21,4 +21,11 @@ RSpec.describe 'static_pages', type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe 'GET /map' do
+    it '正しいレスポンスが確認されること' do
+      get map_path
+      expect(response).to have_http_status(200)
+    end
+  end
 end

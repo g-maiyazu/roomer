@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get '/about', to: 'static_pages#about'
   get '/tos', to: 'static_pages#tos'
+  get '/map', to: 'static_pages#map'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
@@ -41,5 +42,5 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :notifications, only: :index
+  resources :notifications, only: [:index]
 end

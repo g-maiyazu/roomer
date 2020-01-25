@@ -35,6 +35,8 @@ gem 'enum_help'
 gem 'data-confirm-modal'
 gem 'ransack'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem "gmaps4rails"
+gem "geocoder"
 
 group :development, :test do
   gem 'factory_bot_rails'

@@ -55,32 +55,38 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: "Install AWS"
+          name: install aws
           command: |
             sudo pip install awscli
             aws --version
       - run:
-          name: "Install jq"
+          name: Install ecs-deploy
+          command: |
+            curl https://raw.githubusercontent.com/silinternational/ecs-deploy/master/ecs-deploy | sudo tee -a /usr/bin/ecs-deploy
+            sudo chmod +x /usr/bin/ecs-deploy
+      - run:
+          name: Install jq
           command: sudo apt-get install -y jq
       - run:
           name: "Log in to AWS ECR"
-          command: $(aws ecr get-login --no-include-email --region ap-northeast-1)
+          command: eval $(aws ecr get-login --no-include-email --region ap-northeast-1)
       - run:
-          name: "Build Docker Image"
+          name: "Build & Push Docker Image"
           command: |
-            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/roomer-ecr:$CIRCLE_SHA1 .
-      - run:
-          name: "Push Docker Image"
-          command: |
+            docker build -t $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/roomer-ecr:$CIRCLE_SHA1 . 
             docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-northeast-1.amazonaws.com/roomer-ecr:$CIRCLE_SHA1
       - run:
           name: "DB Migrate"
           command: |
-            aws ecs run-task --region ap-northeast-1 --cluster roomer-cluster --task-definition roomer-task --overrides file://ecs/run_task_db_migrate.json
+            aws ecs run-task \
+              --region ap-northeast-1 \
+              --cluster roomer-cluster \
+              --task-definition roomer-task \
+              --overrides file://ecs/run_task_db_migrate.json
       - run:
           name: "Update Task"
           command: |
-            aws ecs register-task-definition --family roomer-task --cli-input-json --region ap-northeast-1 "$(aws ecs describe-task-definition --task-definition roomer-task --region ap-northeast-1 | jq '.taskDefinition | { containerDefinitions: .containerDefinitions }')"
+              aws ecs register-task-definition --family roomer-task --cli-input-json --region ap-northeast-1 "$(aws ecs describe-task-definition --task-definition roomer-task --region ap-northeast-1 | jq '.taskDefinition | { containerDefinitions: .containerDefinitions }')"
       - run:
           name: "Update Service"
           command: |
