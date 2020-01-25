@@ -167,8 +167,10 @@ GEM
       railties (>= 3.2, < 6.1)
     foreman (0.86.0)
     formatador (0.2.5)
+    geocoder (1.6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gmaps4rails (2.1.2)
     guard (2.16.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -431,6 +433,8 @@ DEPENDENCIES
   fog-aws
   font-awesome-rails
   foreman
+  geocoder
+  gmaps4rails
   guard-rspec
   jbuilder (~> 2.5)
   jquery-rails
