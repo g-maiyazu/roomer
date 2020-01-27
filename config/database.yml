@@ -50,5 +50,7 @@ test:
 production:
   <<: *default
   database: app_name_production
-  username: app_name
-  password: <%= ENV['APP_NAME_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
+  host: database-1.c3fxngdfmrxx.ap-northeast-1.rds.amazonaws.com
+  port: 3306
