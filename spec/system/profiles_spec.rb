@@ -25,7 +25,7 @@ RSpec.describe 'Profiles', type: :system do
 
     click_link 'プロフィール編集'
     expect(current_path).to eq edit_profile_path(user)
-    expect(page).to have_content '公開情報'
+    expect(page).to have_content 'プロフィールを編集'
 
     # 無効な文字数を入力した場合
     fill_in 'profile_introduction', with: 'a' * 141
@@ -35,7 +35,7 @@ RSpec.describe 'Profiles', type: :system do
 
     # プロフィールを編集する
     expect(current_path).to eq edit_profile_path(user)
-    expect(page).to have_content '公開情報'
+    expect(page).to have_content 'プロフィールを編集'
 
     fill_in 'profile_age', with: '30'
     find("option[value='man']").select_option
