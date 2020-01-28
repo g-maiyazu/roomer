@@ -32,12 +32,12 @@ RSpec.describe Profile, type: :model do
       expect(@profile.errors).to be_added(:introduction, :too_long, count: 140)
     end
 
-    it '住所が70文字以内なら有効であること' do
+    it '都道府県が70文字以内なら有効であること' do
       @profile.address = 'a' * 70
       expect(@profile).to be_valid
     end
 
-    it '住所が70文字を越えるなら無効であること' do
+    it '都道府県が70文字を越えるなら無効であること' do
       @profile.address = 'a' * 71
       @profile.valid?
       expect(@profile.errors).to be_added(:address, :too_long, count: 70)

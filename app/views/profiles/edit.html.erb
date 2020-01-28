@@ -27,6 +27,10 @@
           <%= f.select :gender, Profile.genders_i18n.keys.map {|k| [Profile.genders_i18n[k], k]}, prompt: '-', class: "form-control" %><br />
         </div>
         <div class="field form-group">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+        <div class="field form-group">
           <%= f.label :job %><br />
           <%= f.select :job, Profile.jobs_i18n.keys.map {|k| [Profile.jobs_i18n[k], k]}, prompt: '-', class: "form-control" %><br />
         </div>

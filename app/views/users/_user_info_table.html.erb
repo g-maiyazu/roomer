@@ -49,6 +49,16 @@
     </td>
   </tr>
   <tr>
+    <th>都道府県</th>
+    <td>
+      <% if profile.address.blank? %>
+        <%= '-' %>
+      <% else %>
+        <%= profile.address %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
     <th>仕事</th>
     <td>
       <% if profile.job_i18n.blank? %>
