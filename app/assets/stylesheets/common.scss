@@ -39,7 +39,7 @@ button, textarea, select {
   max-width: 960px;
 }
 .text-left {
-  text-align: left;
+  text-align: center;
   padding-top: 20px;
 }
 .rounded-circle{
@@ -112,9 +112,6 @@ ul, ol {
 }
 
 /* pagination */
-.pagination {
-  padding-left: 37%;
-}
 .pagination>li>a {          
   border: none;
   color: #696969;
@@ -563,6 +560,10 @@ img.img-fluid-home {
     }
   }
 }
+div#users-feed {
+  text-align-last: center;
+}
+
 
 /* tos */
 .tos-wrapper {
@@ -835,13 +836,18 @@ h1.title.mb-4.text-center {
     }
   }
 }
-
+div#users-photo {
+  text-align-last: center;
+}
+.all-users-footer {
+  text-align-last: center;
+}
 /* show */
 #main {
-  width: 98rem;
   padding: 0;
   overflow: auto;
   margin: 4rem auto 6rem;
+  display: flex;
 }
 #main .left {
   width: 41rem;
@@ -1008,7 +1014,7 @@ select {
   }
 }
 .post-body {
-  padding: 15px 15px;
+  padding: 10px 0;
   @include sm { & { padding: 15px 0; } }
 
   p.post-text {
@@ -1037,13 +1043,13 @@ select {
 .post-container {
   margin: 0 -15px;
 }
-@include sm {
+@include xsm {
   .post-container {
     margin: 0;
   }
 }
 .like-form {
-  padding: 5px 0 5px 490px;
+  padding: 10px 0 10px 0px;
 }
 #post-dropdown {
 
@@ -1060,7 +1066,7 @@ select {
     display: block;
   }
 }
-@include sm {
+@include xsm {
   .img-col {
     img { border-radius: 0.25rem; }
     &::after {
@@ -1077,7 +1083,6 @@ select {
   padding-bottom: 20px;
 }
 button#post-dropdown {
-  padding-left: 680px;
   font-size: large;
 }
 .post-tags {
