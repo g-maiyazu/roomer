@@ -16,8 +16,7 @@ ja:
         age: 年齢
         gender: 性別
         job: 仕事
-        postal_code: 郵便番号
-        address: 住所
+        address: 都道府県
         living_style: 居住形態
         floor_plan: 間取り
         floor_width: 広さ

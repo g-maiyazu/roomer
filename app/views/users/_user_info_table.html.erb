@@ -18,6 +18,17 @@
     </td>
   </tr>
   <tr>
+    <th>名前</th>
+    <td>
+      <% if profile.name.blank? %>
+        <%= '-' %>
+      <% else %>
+        <%= profile.name %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+  <tr>
     <th>年齢</th>
     <td>
       <% if profile.age.blank? %>
@@ -34,6 +45,16 @@
         <%= '-' %>
       <% else %>
         <%= profile.gender_i18n %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>都道府県</th>
+    <td>
+      <% if profile.address.blank? %>
+        <%= '-' %>
+      <% else %>
+        <%= profile.address %>
       <% end %>
     </td>
   </tr>

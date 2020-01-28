@@ -13,9 +13,11 @@
     <%= form_with(model: @profile, url: profile_path, method: :put, local: true) do |f| %>
     <div class="row">
       <div class="edit-profile-form">
-
-        <h3>公開情報</h3><br />
         <!-- プロフィール編集 -->
+        <div class="field form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
         <div class="field form-group">
           <%= f.label :age %>
           <%= f.text_field :age, class: "form-control" %>
@@ -23,6 +25,10 @@
         <div class="field form-group">
           <%= f.label :gender %><br />
           <%= f.select :gender, Profile.genders_i18n.keys.map {|k| [Profile.genders_i18n[k], k]}, prompt: '-', class: "form-control" %><br />
+        </div>
+        <div class="field form-group">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control" %>
         </div>
         <div class="field form-group">
           <%= f.label :job %><br />
@@ -48,16 +54,6 @@
           <%= f.label :introduction, '自己紹介（最大140文字）' %>
           <%= f.text_area :introduction, class: 'form-control js-text', rows: 6, placeholder: '改行は反映されません' %>
           <p class="js-text-count pull-left"></p><br />
-        </div>
-
-        <h3>非公開情報</h3><br />
-        <div class="field form-group">
-          <%= f.label :name %>
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-        <div class="field form-group">
-          <%= f.label :address %>
-          <%= f.text_field :address, class: "form-control" %>
         </div>
         <div class="actions text-left mb-4">
           <%= f.submit "変更を保存する", { class: "btn submit-btn" } %>
