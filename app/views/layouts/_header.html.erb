@@ -1,59 +1,81 @@
-<header class="header_height">
-  <div class="wrapper">
+<header class="navbar navbar-fixed-top navbar-default" id="header-nav">
+  <div class="container">
 
-    <div class="outer">
-      <!-- ロゴ -->
-      <div class="logo">
-        <%= link_to image_tag('logo.png', class: "header-logo"), root_path %>
+    <!-- 追記ここから-->
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-header" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- 追記ここまで-->
+
+      <div class="ib-box">
+        <div class="logo">
+          <%= link_to image_tag('logo.png', class: "header-logo"), root_path %>
+        </div>
+        <div class="search">
+          <%= render 'layouts/search' %>
+        </div>
       </div>
 
-      <!-- 検索フォーム -->
-      <div class="search">
-        <%= render 'layouts/search' %>
-      </div>
-
-      <!-- ログイン後メニュー -->
-      <% if user_signed_in? %>
-        <%= link_to image_tag('post.png', size: "40x40", class: "header-post", alt: "notification"), notifications_path %>
-        <div class="dropdown">
-          <button class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" alt="avatar">
-            <% if !current_user.blank? %>
-              <%= image_tag current_user.avatar.url, size: "40x40", class: 'avatar_present_img rounded-circle z-depth-0 mb-4', alt: "avatar" %>
-            <% else %>
-              <%= image_tag 'no_user.png', size: "40x40", class: 'avatar_present_img d-block rounded-circle z-depth-0 mb-4', alt: "avatar" %>
-            <% end %>
-          </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-            <li role="presentation">
-              <%= link_to "マイルーム", user_path(current_user) %>
-            </li>
-            <li role="presentation">
-              <%= link_to "アカウント設定", edit_user_path %>
-            </li>
-            <li role="presentation">
-              <%= link_to "投稿する", new_post_path %>
-            </li>
-            <li role="presentation">
-              <%= link_to "みんなの写真", posts_path %>
-            </li>
-            <li role="presentation">
-              <%= link_to "すべてのユーザー", users_path %>
-            </li>
-            <li role="presentation" class="divider"></li>
-            <li role="presentation">
-              <%= link_to "ログアウト", logout_path, method: :delete %>
-            </li>
-          </ul>
-        </div>
-      <% else %>
-        <div class="register">
-          <%= link_to "新規登録", signup_path, class: "btn-flat-border-registrer" %>
-        </div>
-        <div class="login">          
-          <%= link_to "ログイン", login_path, class: "btn-flat-border" %>
-        </div>
-      <% end %>
     </div>
 
+    <nav>
+      <ul id="navbar-header" class="nav navbar-nav navbar-right navbar-collapse collapse">
+        <% if user_signed_in? %>
+          <li>
+            <div class="notification-icon">
+              <%= link_to image_tag('post.png', size: "40x40", class: "header-post", alt: "notification"), notifications_path %>
+            </div>
+          </li>
+          <li>
+            <div class="dropdown" id="user-menu">
+              <button class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" alt="avatar">
+                <% if !current_user.blank? %>
+                  <%= image_tag current_user.avatar.url, size: "40x40", class: 'avatar_present_img rounded-circle z-depth-0 mb-4', alt: "avatar" %>
+                <% else %>
+                  <%= image_tag 'no_user.png', size: "40x40", class: 'avatar_present_img d-block rounded-circle z-depth-0 mb-4', alt: "avatar" %>
+                <% end %>
+              </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation">
+                  <%= link_to "マイルーム", user_path(current_user) %>
+                </li>
+                <li role="presentation">
+                  <%= link_to "アカウント設定", edit_user_path %>
+                </li>
+                <li role="presentation">
+                  <%= link_to "投稿する", new_post_path %>
+                </li>
+                <li role="presentation">
+                  <%= link_to "みんなの写真", posts_path %>
+                </li>
+                <li role="presentation">
+                  <%= link_to "すべてのユーザー", users_path %>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation">
+                  <%= link_to "ログアウト", logout_path, method: :delete %>
+                </li>
+              </ul>
+            </div>
+          </li>
+        <% else %>
+          <li>
+            <div class="register">
+              <%= link_to "新規登録", signup_path, class: "btn-flat-border-registrer" %>
+            </div>        
+          </li>
+          <li>
+            <div class="login">          
+              <%= link_to "ログイン", login_path, class: "btn-flat-border" %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
 </header>
