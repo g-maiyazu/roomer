@@ -620,7 +620,6 @@ h1.title.mb-4.text-center {
 }
 /* devise */
 .explanation {
-  max-width: 440px;
   padding: 0 15px;
   text-align: center;
 }
@@ -1113,7 +1112,9 @@ button#post-dropdown {
 .notification-time {
   padding: 2% 16.5%;
 }
-
+.notification-icon {
+  padding-top: 2px;
+}
 /* map */
 #pac-input {
   background-color: #fff;
