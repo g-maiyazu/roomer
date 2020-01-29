@@ -50,6 +50,10 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'letter_opener_web'
   gem "email_spec"
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
