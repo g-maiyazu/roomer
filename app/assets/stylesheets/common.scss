@@ -23,7 +23,6 @@ a:hover {
   color: #999;
   text-decoration: none;
 }
-
 button, textarea, select {
   margin: 0;
   padding: 0;
@@ -184,7 +183,6 @@ header#header-nav {
     width: 200%;
   }
 }
-
 button.searchbtn {
   position: absolute;
   padding-left: 1rem;
@@ -214,6 +212,7 @@ button.searchbtn {
 .login{
   padding: 5px;
 }
+
 /* login */
 .dropdown {
   position: relative;
@@ -229,6 +228,7 @@ button.searchbtn {
 header#header-nav {
   padding-top: 10px;
 }
+
 /* body */
 body {
   padding-top: 80px;
@@ -239,7 +239,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 .page-header {
-  /*width: fit-content; */
   font-size: 1.8rem;
   padding-bottom: 9px;
   margin: 20px 0 20px;
@@ -618,6 +617,7 @@ h1.title.mb-4.text-center {
   font-size: 16px;
   margin-bottom: 10px;
 }
+
 /* devise */
 .explanation {
   padding: 0 15px;
@@ -654,12 +654,12 @@ h1.title.mb-4.text-center {
 
 .custom-form {
   h3 {
-    font-size:15px;			/*文字サイズ*/
-    width:107px;			/*横幅*/
-    padding:10px 0px 11px 18px;		/*パディング*/
-    background-color:#bfbfbf;		/*背景色*/
-    color:#ffffff;			/*文字色*/
-    border-radius:3px;			/*角丸にする*/
+    font-size:15px;
+    width:107px;
+    padding:10px 0px 11px 18px;
+    background-color:#bfbfbf;
+    color:#ffffff;
+    border-radius:3px;
   }
   padding: 10px 15px 0 15px;
   border-radius: 10px 10px 10px 10px;
@@ -844,6 +844,7 @@ div#users-photo {
 .all-users-footer {
   text-align-last: center;
 }
+
 /* show */
 #main {
   padding: 0;
@@ -933,6 +934,7 @@ td.stats{
   padding-left: 45px;
   padding-bottom: 15px;
 }
+
 /* edit-profile */
 select {
   width: 110px;
@@ -1036,6 +1038,7 @@ select {
     box-shadow: none;
   }
 }
+
 /* edit post */
 .post-form-btns.text-right.mb-4 {
   padding-top: 6px;
@@ -1118,6 +1121,7 @@ button#post-dropdown {
 .notification-icon {
   padding-top: 2px;
 }
+
 /* map */
 #pac-input {
   background-color: #fff;
