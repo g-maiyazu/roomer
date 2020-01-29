@@ -18,7 +18,6 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification',
                                    foreign_key: 'visited_id',
                                    dependent: :destroy
-
   mount_uploader :avatar, AvatarUploader
 
   # Include default devise modules. Others available are:

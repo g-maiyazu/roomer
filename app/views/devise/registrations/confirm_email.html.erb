@@ -1,8 +1,6 @@
 <% provide :title, "確認" %>
-
 <div class="custom-form">
   <div class="container">
-
     <h1 class="form-title mb-4 text-center">メールを送信しました</h1>
     <p class="mb-5 text-justify">
       あなたのメールアドレス宛に登録確認のメッセージを送信しました。内容を確認して、添付されているリンクからあなたのアカウントをアクティベートしてください。
@@ -10,6 +8,5 @@
     <div class="text-center">
       <%= link_to "メールが届かない場合はこちら", new_confirmation_path(resource_name), class: "custom-link" %><br />
     </div>
-
   </div>
 </div>

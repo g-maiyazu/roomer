@@ -1,11 +1,8 @@
 <% provide(:title, 'すべてのユーザー') %>
-
 <div class="page-header d-flex align-items-center mx-auto mb-4">すべてのユーザー</div>
-
 <div class="all-users user-cards row">
   <%= render 'users/user_cards', group: @search_users %>
 </div>
-
 <div class="all-users-footer">
   <%= paginate @search_users %>
 </div>

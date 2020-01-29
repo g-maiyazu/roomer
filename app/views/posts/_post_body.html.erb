@@ -4,28 +4,25 @@
   <% end %>
   <small><%= date_format(object.created_at) %></small>
 
+  <!-- ユーザーメニュー -->
   <% if user_signed_in? %>
     <% if object.user == current_user %>
       <div class="dropdown mr-1">
         <button type="button" class="btn-post dropdown-toggle setting-btn py-0 px-1", data-toggle="dropdown", data-offset="0,10", id="post-dropdown",
                           aria-haspopup="true", aria-expanded="false", style="box-shadow: none" ><i class="fas fa-ellipsis-h"></i></button>
         <div class="dropdown-menu dropdown-menu-left">
-
           <div class="dropdown-divider"></div>
           <a href="https://twitter.com/share?url=<%= post_url(object) %>" target="_blank" rel="nofollow" class="dropdown-item opensub d-flex align-items-center">
             <div style="width: 100%">投稿を共有</div><i class="fab fa-twitter" style="position: relative; left: 2px;"></i>
           </a>
-
           <div class="dropdown-divider"></div>
           <%= link_to edit_post_path(object), class: "dropdown-item d-flex align-items-center" do %>
             <div style="width: 100%">投稿を編集</div><i class="far fa-edit" style="position: relative; left: 4px;"></i>
           <% end %>
-
           <div class="dropdown-divider"></div>
           <%= link_to post_path(object),  class: "dropdown-item d-flex align-items-center", method: :delete, data: {confirm: "本当に削除しますか?", cancel: "キャンセル", commit: "削除"} do %>
             <div style="width: 100%">投稿を削除</div><i class="fas fa-trash-alt"></i>
           <% end %>
-
         </div>
       </div>
     <% elsif current_user.admin?  %>

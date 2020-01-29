@@ -4,11 +4,9 @@
       自分の部屋の<br class="d-sm-none">写真を共有しよう
     </div>
   </div><br/>
-
   <div class="post-cards-nav d-flex align-items-center">
     <div class="post-cards-nav-header mr-auto">最新の投稿</div>
   </div>
-
   <div class="tab-content" id="pills-tabContent">
     <div class="post-cards latest row">
       <% @latest_posts.each do |post| %>
@@ -31,7 +29,6 @@
         </div>
       <% end %>
     </div>
-
     <div class="post-cards-footer latest">
       <%= paginate @latest_posts %>
     </div>
