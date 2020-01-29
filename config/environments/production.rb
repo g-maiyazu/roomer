@@ -52,7 +52,8 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  # config.log_level = :debug
+  config.log_level = :info
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
@@ -92,4 +93,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # mailer setting
+  config.action_mailer.default_url_options = { protocol: "https", host: 'roomer.work' }
+  config.action_mailer.delivery_method = :ses
 end

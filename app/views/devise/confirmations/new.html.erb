@@ -1,25 +1,20 @@
 <% provide :title, "確認メールの再発行" %>
-
 <div class="custom-form">
   <h1 class="form-title mb-4 text-center">確認メールの再発行</h1>
   <p class="explanation mx-auto mb-5 text-justify">
     登録確認のメッセージが届かない場合は、以下のフォームに登録に使用したメールアドレスを入力してください。確認メールを再発行致します。
   </p>
   <%= render "devise/shared/error_messages", resource: resource %>
-
   <div class="container">
     <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-      
       <div class="field form-group mb-5">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email",
                           value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
       </div>
-
       <div class="actions text-center mb-4">
         <%= f.submit " 再発行する ", { class: "btn submit-btn" }  %>
       </div>
     <% end %>
-
   </div>
 </div>

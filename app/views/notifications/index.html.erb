@@ -1,5 +1,4 @@
 <% provide :title, "あなたへの通知" %>
-
 <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
 <div>
   <% if @notifications.exists? %>

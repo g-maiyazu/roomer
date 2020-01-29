@@ -1,5 +1,4 @@
 <% provide :title, "私の部屋画像" %>
-
 <!-- error -->
 <div class="error_explanation">
   <% if alert %>
@@ -15,7 +14,6 @@
   <div class="col">
     <%= render 'posts/post_body', object: @post %>
   </div>
-
   <div class="post-tags">
     <h5>タグ一覧</h5>
     <div class="post-tags__con">
@@ -24,13 +22,11 @@
       <% end %>
     </div>
   </div>
-
   <% if user_signed_in? %>
     <div class="col comment-form">
       <%= render partial: 'comments/comment_form', :locals => {:comment => @comment, :post => @post} %>
     </div>
   <% end %>
-
   <div class="col comment-index">
     <%= render partial: 'comments/comment_index', :locals => {:comment => @comment, :post => @post} %>
   </div>

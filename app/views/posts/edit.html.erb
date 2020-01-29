@@ -1,7 +1,5 @@
 <% provide :title, "投稿を編集" %>
-
 <div class="page-header d-flex align-items-center mx-auto mb-4">投稿を編集する</div>
-
 <%= form_for @post do |f| %>
   <div class="post-form">
     <div class="preview-wrap" onClick="$('#file').click()">
@@ -15,7 +13,6 @@
 
     <%= f.file_field :image, class: "image", style: "display: none;", id: "file", accept: 'image/jpeg,image/gif,image/png' %>
     <%= f.hidden_field :image_cache %>
-
 
     <%= f.text_area :caption, class: "caption", placeholder: "キャプションを入力..." %>
 

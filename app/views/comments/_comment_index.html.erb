@@ -1,6 +1,5 @@
 <% @comments.each do |comment| %>
   <% unless comment.id.nil? %>
-
     <% if comment.user.avatar?%>
       <%= link_to image_tag(comment.user.avatar.url, size: "35x35", class: "rounded-circle z-depth-0",
                             alt: "avatar image"), user_path(comment.user), class: "mr-3" %>
