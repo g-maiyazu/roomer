@@ -72,6 +72,11 @@ GEM
     aws-sdk-ses (1.27.0)
       aws-sdk-core (~> 3, >= 3.71.0)
       aws-sigv4 (~> 1.1)
+    aws-ses (0.6.0)
+      builder
+      mail (> 2.2.5)
+      mime-types
+      xml-simple
     aws-sigv4 (1.1.0)
       aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
@@ -402,6 +407,7 @@ GEM
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    xml-simple (1.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -413,6 +419,7 @@ DEPENDENCIES
   ancestry
   aws-sdk-rails
   aws-sdk-s3
+  aws-ses
   bootsnap (>= 1.1.0)
   bootstrap-sass (= 3.3.7)
   byebug
