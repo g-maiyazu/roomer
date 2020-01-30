@@ -64,4 +64,4 @@
 server '3.115.193.153', user: 'g-maiyazu', roles: %w{app db web} 
 
 #デプロイするサーバーにsshログインする鍵の情報を記述
-set :ssh_options, keys: '~/.ssh/roomer_key_rsa' 
+set :ssh_options, keys: '~/.ssh/roomer.pem' 
