@@ -5,6 +5,7 @@ $app_dir = "/var/www/rails/roomer"
 $listen  = File.expand_path 'tmp/sockets/.unicorn.sock', $app_dir
 $pid     = File.expand_path 'tmp/pids/unicorn.pid', $app_dir
 $std_log = File.expand_path 'log/unicorn.log', $app_dir
+
 # set config
 worker_processes  $worker
 working_directory $app_dir
@@ -13,8 +14,10 @@ stdout_path $std_log
 timeout $timeout
 listen  $listen
 pid $pid
+
 # loading booster
 preload_app true
+
 # before starting processes
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
@@ -26,6 +29,7 @@ before_fork do |server, worker|
     end
   end
 end
+
 # after finishing processes
 after_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
