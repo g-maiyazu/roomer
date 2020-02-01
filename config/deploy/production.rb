@@ -60,8 +60,11 @@
 #     # password: "please use keys"
 #   }
 
-# EC2サーバーのIP、EC2サーバーにログインするユーザー名、サーバーのロールを記述
-server '3.115.193.153', user: 'g-maiyazu', roles: %w{app db web} 
+# デプロイサーバー情報
+server '3.115.193.153', user: 'genki', roles: %w[app db web]
 
-#デプロイするサーバーにsshログインする鍵の情報を記述
-set :ssh_options, keys: '~/.ssh/roomer.pem' 
+#デプロイサーバーへの鍵情報
+set :ssh_options,
+    keys: %w[~/.ssh/roomer_key_rsa],
+    forward_agent: true,
+    auth_methods: %w[publickey]
