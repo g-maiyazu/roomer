@@ -1,5 +1,5 @@
 <div class="user-delete-link">
-  <%= link_to registration_path(@user), class: "btn-square", method: :delete, data: { confirm: "本当に退会させてもよろしいですか？" } do %>
+  <%= link_to @user, class: "btn-square", method: :delete, data: { confirm: "本当に退会させてもよろしいですか？" } do %>
     <i class="fas fa-user-slash"></i> 強制退会
   <% end %>
 </div>
