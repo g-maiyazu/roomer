@@ -1,5 +1,5 @@
 class CustomMailer < ApplicationMailer
-  default from: 'roomer.work <noreply@roomer.work.com>'
+  default from: 'roomer.work <noreply@roomer.work>'
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
