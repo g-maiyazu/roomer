@@ -35,8 +35,6 @@ gem "geocoder"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
-gem 'aws-sdk-s3'
-gem 'aws-sdk-rails'
 gem 'aws-ses'
 
 group :development, :test do

@@ -95,6 +95,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # mailer setting
-  config.action_mailer.default_url_options = { protocol: "https", host: 'roomer.work' }
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'roomer.work' }
   config.action_mailer.delivery_method = :ses
 end

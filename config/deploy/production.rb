@@ -60,11 +60,22 @@
 #     # password: "please use keys"
 #   }
 
+# server '3.115.193.153',
+#   user: "genki",
+#   roles: %w{web db app},
+#   ssh_options: {
+#     user: "genki",
+#     keys: %w(~/.ssh/roomer_key_rsa),
+#     forward_agent: true,
+#     auth_methods: %w(publickey)
+#   }
+
 # デプロイサーバー情報
 server '3.115.193.153', user: 'genki', roles: %w[app db web]
 
 #デプロイサーバーへの鍵情報
-set :ssh_options,
-    keys: %w[~/.ssh/roomer_key_rsa],
-    forward_agent: true,
-    auth_methods: %w[publickey]
+set :ssh_options, {
+  keys: [File.expand_path('~/.ssh/roomer_key_rsa')],
+  forward_agent: true,
+  auth_methods: %w(publickey)
+}
