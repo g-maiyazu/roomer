@@ -6,7 +6,7 @@ class CustomMailer < ApplicationMailer
   #   en.custom_mailer.test.subject
   #
   def test
-    @greeting = "Hi"
+    @greeting = 'Hi'
 
     mail to: ENV['GMAIL_ADDRESS']
   end
