@@ -44,7 +44,7 @@ RSpec.describe 'Posts', type: :system, js: true do
     expect(current_path).to eq edit_post_path(post)
     expect(page).to have_button '編集を完了'
 
-    fill_in 'おすすめインテリア情報を入力...', with: "これは私の父の部屋です"
+    fill_in 'おすすめインテリア情報を入力...', with: 'これは私の父の部屋です'
     click_button '編集を完了'
 
     expect(current_path).to eq post_path(post)
