@@ -38,7 +38,7 @@ RSpec.describe 'Posts', type: :system, js: true do
     expect(current_path).to eq post_path(post)
     expect(page).to have_content '私の部屋は白を基調にしています'
 
-    # 投稿編集
+    # 投稿削除
     # find('button#post-dropdown').click
     # #click_link '投稿を削除'
     # page.accept_confirm '本当に削除しますか?' do
