@@ -54,33 +54,11 @@ GEM
     ast (2.4.0)
     autoprefixer-rails (9.7.3)
       execjs
-    aws-eventstream (1.0.3)
-    aws-partitions (1.260.0)
-    aws-sdk-core (3.86.0)
-      aws-eventstream (~> 1.0, >= 1.0.2)
-      aws-partitions (~> 1, >= 1.239.0)
-      aws-sigv4 (~> 1.1)
-      jmespath (~> 1.0)
-    aws-sdk-kms (1.27.0)
-      aws-sdk-core (~> 3, >= 3.71.0)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-rails (3.0.5)
-      aws-sdk-ses (~> 1)
-      railties (>= 5.2.0)
-    aws-sdk-s3 (1.60.1)
-      aws-sdk-core (~> 3, >= 3.83.0)
-      aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-ses (1.27.0)
-      aws-sdk-core (~> 3, >= 3.71.0)
-      aws-sigv4 (~> 1.1)
     aws-ses (0.6.0)
       builder
       mail (> 2.2.5)
       mime-types
       xml-simple
-    aws-sigv4 (1.1.0)
-      aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.5)
@@ -103,8 +81,6 @@ GEM
     capistrano-rbenv (2.1.6)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
-    capistrano3-unicorn (0.2.1)
-      capistrano (~> 3.1, >= 3.1.0)
     capybara (3.30.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -217,7 +193,6 @@ GEM
     jaro_winkler (1.5.4)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
-    jmespath (1.4.0)
     jquery-rails (4.3.5)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -440,8 +415,6 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 6.0)
   ancestry
-  aws-sdk-rails
-  aws-sdk-s3
   aws-ses
   bootsnap (>= 1.1.0)
   bootstrap-sass (= 3.3.7)
@@ -450,7 +423,6 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv
-  capistrano3-unicorn
   capybara (>= 2.15)
   carrierwave
   coffee-rails (~> 4.2)
@@ -503,4 +475,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
