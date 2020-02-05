@@ -25,16 +25,6 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-  desc 'upload settings.yml'
-  task :upload do
-    on roles(:app) do |_host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('config/settings.yml', "#{shared_path}/config/settings.yml")
-    end
-  end
-
   desc 'Create database'
   task :db_create do
     on roles(:db) do |host|
