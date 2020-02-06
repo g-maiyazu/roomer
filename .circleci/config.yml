@@ -58,4 +58,4 @@ jobs:
 
       - deploy:
           name: Capistrano deploy
-          command: sh script/deploy_staging.sh
+          command: sh script/deploy.sh
