@@ -54,8 +54,4 @@ jobs:
 
       - deploy:
           name: Capistrano deploy unicorn
-          command: |
-            if [ "${CIRCLE_BRANCH}" != "master" ]; then
-              exit 0
-            fi
-            bundle exec cap production deploy unicorn
+          command: bundle exec cap production deploy unicorn
