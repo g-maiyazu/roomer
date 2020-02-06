@@ -52,8 +52,6 @@ jobs:
           name: Run Rspec
           command: bundle exec rspec
 
-
-
       - deploy:
-          name: Capistrano deploy unicorn
-          command: sh script/deploy.sh
+          name: Capistrano deploy
+          command: bundle exec cap production deploy
