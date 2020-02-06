@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/ruby:2.6.3-node-browsers-legacy
         environment:
@@ -48,8 +48,14 @@ jobs:
           name: Run Rspec
           command: bundle exec rspec
 
-workflows:
-  version: 2
-  test:
-    jobs:
-      - test
+      - add_ssh_keys:
+          fingerprints:
+            - "8a:ee:86:b9:e8:01:f1:e7:31:34:93:1b:ee:a9:42:02"
+
+      - deploy:
+          name: Capistrano deploy unicorn
+          command: |
+            if [ "${CIRCLE_BRANCH}" != "master" ]; then
+              exit 0
+            fi
+            bundle exec cap production deploy unicorn

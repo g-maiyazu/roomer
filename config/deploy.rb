@@ -6,7 +6,7 @@ set :repo_url, "git@github.com:g-maiyazu/roomer.git"
 set :deploy_to, "/var/www/rails/roomer"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
-set :linked_files, fetch(:linked_files, []).push("config/settings.yml")
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 set :pty, true
 
@@ -23,6 +23,16 @@ set :log_level, :debug
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
+  end
+
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |_host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
   end
 
   desc 'Create database'
