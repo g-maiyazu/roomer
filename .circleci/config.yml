@@ -18,6 +18,10 @@ jobs:
 
     working_directory: ~/myapp
 
+    dependencies:
+      pre:
+        - sudo pip install awscli
+
     steps:
       - checkout
       - restore_cache:
@@ -54,4 +58,4 @@ jobs:
 
       - deploy:
           name: Capistrano deploy unicorn
-          command: bundle exec cap production deploy unicorn
+          command: sh script/deploy.sh
