@@ -52,6 +52,10 @@ jobs:
           name: Run Rspec
           command: bundle exec rspec
 
+      - add_ssh_keys:
+          fingerprints:
+            - "8a:ee:86:b9:e8:01:f1:e7:31:34:93:1b:ee:a9:42:02"
+
       - deploy:
           name: Capistrano deploy
-          command: bundle exec cap production deploy
+          command: sh script/deploy_staging.sh
