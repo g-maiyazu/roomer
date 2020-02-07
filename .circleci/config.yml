@@ -42,6 +42,7 @@ jobs:
           name: Run Rubocop
           command: bundle exec rubocop
 
+      - run: mv config/database.yml config/database.yml.org
       - run: mv config/database.yml.ci config/database.yml
 
       - run: bundle exec rake db:create
@@ -51,6 +52,11 @@ jobs:
       - run:
           name: Run Rspec
           command: bundle exec rspec
+
+      - run: mv config/database.yml.org config/database.yml
+
+      - run: sudo apt-get update && sudo apt-get install python3-pip groff-base
+      - run: sudo pip3 install awscli --ignore-installed six
 
       - add_ssh_keys:
           fingerprints:
