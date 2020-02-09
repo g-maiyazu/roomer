@@ -73,7 +73,7 @@ jobs:
 
       - deploy:
           name: Capistrano deploy
-          command: sh script/deploy.sh
+          command: bundle exec cap production deploy
 
       - run:
           name: "revoke-security-group-ingress"
