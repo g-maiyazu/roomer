@@ -1,8 +1,0 @@
-{
-  "containerOverrides": [
-    {
-      "name": "roomer_web",
-      "command": ["bundle", "exec", "rails", "db:migrate"]
-    }
-  ]
-}
