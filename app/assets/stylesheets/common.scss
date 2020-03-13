@@ -136,15 +136,6 @@ header#header-nav {
   position: fixed;
   background: #FFFFFF;
 }
-.outer{
-  max-width: 103.2rem;
-  padding: 1.6rem;
-  margin: 0 auto;
-  height: 6.7rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
 .header-logo{
   display: block;
   width: 136px;
@@ -563,7 +554,6 @@ img.img-fluid-home {
 div#users-feed {
   text-align-last: center;
 }
-
 
 /* tos */
 .tos-wrapper {
