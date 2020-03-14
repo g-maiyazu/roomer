@@ -38,12 +38,6 @@ Style/IdenticalConditionalBranches:
 Style/HashEachMethods:
   Enabled: false
 
-Style/HashTransformKeys:
-  Enabled: false
-
-Style/HashTransformValues:
-  Enabled: false
-
 Metrics/AbcSize:
   Max: 30
 
