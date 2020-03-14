@@ -9,6 +9,18 @@
             <div class="post-card-img">
               <%= link_to image_tag(post.image.url, class: "img-fluid-home", alt: "post image"), post_path(post) %>
             </div>
+            <div class="post-card-footer d-flex align-items-center">
+              <% if post.user.avatar?%>
+                <%= link_to image_tag(post.user.avatar.mini.url, size: "35x35", class: "rounded-circle z-depth-0",
+                                      alt: "avatar image"), user_path(post.user), class: "mr-3" %>
+              <% else %>
+                <%= link_to image_tag("no_user.png", size: "35x35", class: "rounded-circle z-depth-0",
+                                      alt: "avatar image"), user_path(post.user), class: "mr-3" %>
+              <% end %>
+              <div class="post-footer-names" style="line-height: 20px;">
+                <%= link_to "@#{post.user.user_name}", user_path(post.user), class: "post-footer-username" %></a>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>
@@ -20,3 +32,4 @@
     </div>
   </div>
 </div>
+

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: %i[show]
+  before_action :authenticate_user!, except: %i[index show]
   before_action :correct_user, only: %i[edit update destroy]
 
   def index
