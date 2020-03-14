@@ -35,9 +35,6 @@ Style/GuardClause:
 Style/IdenticalConditionalBranches:
   Enabled: false
 
-Style/HashEachMethods:
-  Enabled: false
-
 Metrics/AbcSize:
   Max: 30
 
