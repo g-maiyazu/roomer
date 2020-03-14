@@ -8,6 +8,7 @@
   box-sizing:         border-box;
 }
 
+@mixin xxsm { @media (min-width: 375px) { @content; } }
 @mixin xsm { @media (min-width: 470px) { @content; } }
 @mixin sm { @media (min-width: 576px) { @content; } }
 @mixin md { @media (min-width: 768px) { @content; } }
@@ -154,7 +155,7 @@ header#header-nav {
 }
 .searchfield {
   height: 3.2rem;
-  width: 90%;
+  width: 130%;
   -moz-border-radius: 0.8rem;
   -webkit-border-radius: 0.8rem;
   border-radius: 0.8rem;
@@ -163,6 +164,11 @@ header#header-nav {
   padding: 0 0 0 3rem;
   font-size: 1.4rem;
   box-sizing: border-box;
+}
+@include xxsm {
+  .searchfield {
+    width: 56%;
+  }
 }
 @include md {
   .searchfield {
