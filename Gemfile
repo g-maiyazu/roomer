@@ -34,6 +34,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'aws-ses'
+gem "actionview", ">= 5.2.4.2"
 
 group :development, :test do
   gem 'factory_bot_rails'
