@@ -48,8 +48,6 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     airbrussh (1.4.0)
       sshkit (>= 1.6.1, != 1.7.0)
-    ancestry (3.0.7)
-      activerecord (>= 3.2.0)
     arel (9.0.0)
     ast (2.4.0)
     autoprefixer-rails (9.7.3)
@@ -272,8 +270,6 @@ GEM
     public_suffix (4.0.2)
     puma (3.12.2)
     rack (2.0.8)
-    rack-cors (1.1.0)
-      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.1)
@@ -419,7 +415,6 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 6.0)
-  ancestry
   aws-ses
   bcrypt_pbkdf
   bootsnap (>= 1.1.0)
@@ -461,7 +456,6 @@ DEPENDENCIES
   mysql2 (>= 0.4.4, < 0.6.0)
   pry-byebug
   puma (~> 3.11)
-  rack-cors
   rails (~> 5.2.3)
   rails-i18n
   ransack
